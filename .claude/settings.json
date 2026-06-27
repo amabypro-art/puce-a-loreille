@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /Users/perso/Documents/puce-a-loreille && [ -n \"$(git status --porcelain)\" ] && git add -A && git commit -m \"Auto-commit by Claude $(date '+%Y-%m-%d %H:%M:%S')\" && git push 2>/dev/null || true",
+            "statusMessage": "Committing and pushing changes..."
+          }
+        ]
+      }
+    ]
+  }
+}

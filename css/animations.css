@@ -1,0 +1,25 @@
+/* ════════════════════════════════════════════
+   LA PUCE À L'OREILLE — animations.css
+   ════════════════════════════════════════════ */
+
+/* ── FADE UP (déclenché par IntersectionObserver) ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
+  transition-delay: var(--delay, 0ms);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── NAV scrollée ── */
+.nav--scrolled {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+}
+
+/* ── Hover patte footer ── */
+.footer__logo:hover { cursor: default; }
