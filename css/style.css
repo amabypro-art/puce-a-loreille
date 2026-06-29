@@ -384,13 +384,15 @@ a  { color: inherit; }
   aspect-ratio: 4/5;
   background: linear-gradient(135deg, var(--vert-pastel), var(--vert-clair));
   border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 5rem;
-  /* Remplacer par une vraie photo :
-     background: url('../images/toiletteuse.jpg') center/cover;
-  */
+  overflow: hidden;
+  position: relative;
+}
+.about__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 .about__badge {
   position: absolute;
