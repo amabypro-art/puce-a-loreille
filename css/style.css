@@ -361,10 +361,11 @@ a  { color: inherit; }
   transform: scale(1.05);
 }
 .service-card h3 {
-  font-size: 1rem;
+  font-size: 0.88rem;
   color: var(--vert-fonce);
   margin-bottom: 0.5rem;
   padding: 1.2rem 1.2rem 0;
+  white-space: nowrap;
 }
 .service-card p {
   font-family: var(--font-sans);
