@@ -147,8 +147,8 @@ a  { color: inherit; }
   z-index: 100;
   background: var(--vert-fonce);
   padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   box-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
@@ -172,6 +172,8 @@ a  { color: inherit; }
   display: flex;
   gap: 2rem;
   align-items: center;
+  grid-column: 2;
+  justify-content: center;
 }
 .nav__links a {
   color: rgba(255,255,255,0.78);
@@ -200,6 +202,8 @@ a  { color: inherit; }
   border: none;
   cursor: pointer;
   padding: 4px;
+  grid-column: 3;
+  justify-self: end;
 }
 .nav__burger span {
   display: block;
