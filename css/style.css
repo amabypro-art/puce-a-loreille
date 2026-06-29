@@ -332,40 +332,58 @@ a  { color: inherit; }
   background: var(--blanc);
   border: 1px solid var(--vert-pastel);
   border-radius: var(--radius-md);
-  padding: 2rem 1.5rem;
+  overflow: hidden;
   text-align: center;
   box-shadow: var(--shadow-card);
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
   cursor: default;
+  display: flex;
+  flex-direction: column;
 }
 .service-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-hover);
   border-color: var(--vert-moyen);
 }
-.service-card__icon {
-  font-size: 2.4rem;
-  display: block;
-  margin-bottom: 1rem;
+.service-card__img {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--vert-xlight);
+}
+.service-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.service-card:hover .service-card__img img {
+  transform: scale(1.05);
 }
 .service-card h3 {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--vert-fonce);
   margin-bottom: 0.5rem;
+  padding: 1.2rem 1.2rem 0;
 }
 .service-card p {
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: 0.83rem;
   color: var(--texte-doux);
   line-height: 1.55;
+  padding: 0 1.2rem;
+  flex: 1;
 }
 .service-card__prix {
-  display: block;
-  margin-top: 1rem;
+  display: inline-block;
+  margin: 1rem auto 1.2rem;
+  background: var(--vert-pastel);
+  color: var(--vert-fonce);
+  padding: 0.3rem 1rem;
+  border-radius: var(--radius-pill);
   font-family: var(--font-sans);
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--vert-moyen);
   letter-spacing: 0.04em;
 }
 
