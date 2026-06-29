@@ -156,6 +156,7 @@ a  { color: inherit; }
   display: flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
 }
 .nav__patte { font-size: 26px; }
 .nav__title {
