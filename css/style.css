@@ -369,6 +369,24 @@ a  { color: inherit; }
   letter-spacing: 0.04em;
 }
 
+.services-note {
+  text-align: center;
+  margin-top: 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.83rem;
+  color: var(--texte-doux);
+  background: var(--vert-xlight);
+  border: 1px solid var(--vert-pastel);
+  border-radius: var(--radius-pill);
+  padding: 0.6rem 1.5rem;
+  display: inline-block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+
 /* ══════════════════════════════════════════
    À PROPOS
    ══════════════════════════════════════════ */
