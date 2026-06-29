@@ -226,6 +226,7 @@ a  { color: inherit; }
   min-height: 88vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 5rem 3rem 4rem;
   position: relative;
   overflow: hidden;
@@ -274,7 +275,7 @@ a  { color: inherit; }
 }
 .hero__title {
   font-size: clamp(1.6rem, 3.8vw, 3rem);
-  color: var(--blanc);
+  color: var(--vert-fonce);
   line-height: 1.12;
   margin-bottom: 1.2rem;
   white-space: nowrap;
