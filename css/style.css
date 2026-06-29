@@ -311,20 +311,20 @@ a  { color: inherit; }
 .hero__animal--left {
   left: 0;
   bottom: 0;
-  width: min(220px, 20vw);
+  width: min(240px, 22vw);
   animation: animalLeft 0.9s cubic-bezier(0.34, 1.2, 0.64, 1) 0.3s both;
 }
 .hero__animal--right {
   right: 0;
   bottom: 0;
-  width: min(380px, 36vw);
+  width: min(360px, 34vw);
   animation: animalRight 0.9s cubic-bezier(0.34, 1.2, 0.64, 1) 0.5s both;
 }
 .hero__animal--bottom {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: min(160px, 15vw);
+  width: min(220px, 20vw);
   animation: animalUp 0.9s cubic-bezier(0.34, 1.2, 0.64, 1) 0.7s both;
 }
 
