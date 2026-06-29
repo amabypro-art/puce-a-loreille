@@ -279,11 +279,16 @@ a  { color: inherit; }
 .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 .hero__illustration {
   position: absolute;
-  right: 4%;
+  right: 2%;
   bottom: 0;
-  width: min(380px, 42vw);
-  opacity: 0.88;
+  width: min(420px, 44vw);
   pointer-events: none;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.15));
+}
+.hero__illustration img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ══════════════════════════════════════════
@@ -527,12 +532,15 @@ a  { color: inherit; }
   background: linear-gradient(135deg, var(--vert-pastel), var(--vert-clair));
   transition: transform var(--transition);
   cursor: pointer;
-  /* Quand on a des vraies photos :
-     background: url('../images/photo-X.jpg') center/cover;
-  */
 }
 .galerie__item:hover { transform: scale(1.02); }
 .galerie__item span { font-size: 3rem; }
+.galerie__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .galerie__item p {
   position: absolute;
   bottom: 0; left: 0; right: 0;
