@@ -158,7 +158,7 @@ a  { color: inherit; }
   gap: 10px;
   text-decoration: none;
 }
-.nav__patte { font-size: 26px; }
+.nav__patte { font-size: 26px; filter: brightness(0) invert(1); }
 .nav__title {
   color: var(--blanc);
   font-size: 1.05rem;
