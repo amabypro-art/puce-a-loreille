@@ -296,6 +296,12 @@ a  { color: inherit; }
   animation: slideLeftToRight 1s cubic-bezier(0.34, 1.2, 0.64, 1) 0.3s both;
   z-index: 2;
 }
+.hero__illustration--right {
+  left: auto;
+  right: clamp(40px, 10vw, 150px);
+  width: min(380px, 30vw);
+  animation: slideRightToLeft 1s cubic-bezier(0.34, 1.2, 0.64, 1) 0.5s both;
+}
 .hero__illustration img {
   width: 100%;
   height: auto;
@@ -303,6 +309,10 @@ a  { color: inherit; }
 }
 @keyframes slideLeftToRight {
   from { transform: translateX(-120vw); opacity: 0; }
+  to   { transform: translateX(0);      opacity: 1; }
+}
+@keyframes slideRightToLeft {
+  from { transform: translateX(120vw);  opacity: 0; }
   to   { transform: translateX(0);      opacity: 1; }
 }
 
