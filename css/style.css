@@ -109,18 +109,18 @@ a  { color: inherit; }
 .btn:active { transform: scale(0.98); }
 
 .btn--primary {
-  background: var(--blanc);
-  color: var(--vert-fonce);
-  box-shadow: 0 4px 16px rgba(255,255,255,0.25);
+  background: var(--vert-fonce);
+  color: var(--blanc);
+  box-shadow: 0 4px 16px rgba(45,90,39,0.25);
 }
-.btn--primary:hover { box-shadow: 0 8px 24px rgba(255,255,255,0.35); }
+.btn--primary:hover { box-shadow: 0 8px 24px rgba(45,90,39,0.35); }
 
 .btn--secondary {
-  border: 2px solid rgba(255,255,255,0.6);
-  color: var(--blanc);
+  border: 2px solid var(--vert-fonce);
+  color: var(--vert-fonce);
   background: transparent;
 }
-.btn--secondary:hover { background: rgba(255,255,255,0.12); }
+.btn--secondary:hover { background: rgba(45,90,39,0.08); }
 
 .btn--outline {
   border: 2px solid var(--vert-moyen);
@@ -231,14 +231,6 @@ a  { color: inherit; }
   position: relative;
   overflow: hidden;
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(100deg, rgba(30,58,26,0.82) 0%, rgba(30,58,26,0.55) 50%, transparent 78%);
-  pointer-events: none;
-  z-index: 1;
-}
 .hero__bg-dots {
   position: absolute;
   inset: 0;
@@ -261,9 +253,9 @@ a  { color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.28);
-  color: var(--blanc);
+  background: rgba(45,90,39,0.12);
+  border: 1px solid rgba(45,90,39,0.3);
+  color: var(--vert-fonce);
   padding: 0.38rem 1rem;
   border-radius: var(--radius-pill);
   font-size: 0.78rem;
@@ -285,7 +277,7 @@ a  { color: inherit; }
   color: var(--vert-pastel);
 }
 .hero__sub {
-  color: rgba(255,255,255,0.82);
+  color: var(--texte-doux);
   font-size: 1.05rem;
   font-family: var(--font-sans);
   font-style: normal;
