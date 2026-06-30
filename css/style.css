@@ -227,7 +227,7 @@ a  { color: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 3rem 4rem;
+  padding: 5rem 3rem 0;
   position: relative;
   overflow: hidden;
 }
@@ -287,9 +287,9 @@ a  { color: inherit; }
 .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 .hero__illustration {
   position: absolute;
-  left: 24px;
+  left: 20px;
   bottom: 0;
-  width: min(360px, 34vw);
+  width: min(280px, 26vw);
   pointer-events: none;
   filter: drop-shadow(0 8px 32px rgba(0,0,0,0.12));
   animation: slideLeftToRight 1s cubic-bezier(0.34, 1.2, 0.64, 1) 0.3s both;
