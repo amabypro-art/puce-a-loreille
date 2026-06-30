@@ -229,7 +229,8 @@ a  { color: inherit; }
   justify-content: center;
   padding: 5rem 3rem 0;
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 .hero__bg-dots {
   position: absolute;
@@ -287,12 +288,13 @@ a  { color: inherit; }
 .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 .hero__illustration {
   position: absolute;
-  left: 20px;
-  bottom: 0;
-  width: min(280px, 26vw);
+  left: clamp(60px, 18vw, 260px);
+  bottom: -30px;
+  width: min(420px, 39vw);
   pointer-events: none;
   filter: drop-shadow(0 8px 32px rgba(0,0,0,0.12));
   animation: slideLeftToRight 1s cubic-bezier(0.34, 1.2, 0.64, 1) 0.3s both;
+  z-index: 2;
 }
 .hero__illustration img {
   width: 100%;
@@ -357,6 +359,8 @@ a  { color: inherit; }
   gap: 1.8rem;
   flex-wrap: wrap;
   border-top: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  z-index: 5;
 }
 .stars-bar__item {
   display: flex;
