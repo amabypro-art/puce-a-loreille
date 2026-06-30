@@ -298,7 +298,8 @@ a  { color: inherit; }
 }
 .hero__illustration--right {
   left: auto;
-  right: clamp(40px, 10vw, 150px);
+  right: clamp(160px, 20vw, 300px);
+  bottom: 150px;
   width: min(380px, 30vw);
   animation: slideRightToLeft 1s cubic-bezier(0.34, 1.2, 0.64, 1) 0.5s both;
 }
