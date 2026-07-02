@@ -436,7 +436,6 @@ a  { color: inherit; }
   color: var(--vert-fonce);
   margin-bottom: 0.5rem;
   padding: 1.2rem 1.2rem 0;
-  white-space: nowrap;
 }
 .service-card p {
   font-family: var(--font-sans);
