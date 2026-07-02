@@ -393,9 +393,22 @@ a  { color: inherit; }
    ══════════════════════════════════════════ */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1.4rem;
 }
+.service-card:nth-child(1),
+.service-card:nth-child(2),
+.service-card:nth-child(3) { grid-column: span 2; }
+.service-card:nth-child(4),
+.service-card:nth-child(5) { grid-column: span 3; }
+.service-card:nth-child(4) .service-card__img,
+.service-card:nth-child(5) .service-card__img { aspect-ratio: 5/2; }
+.service-card:nth-child(4) h3,
+.service-card:nth-child(5) h3 { font-size: 1.02rem; }
+.service-card:nth-child(4) p,
+.service-card:nth-child(5) p { font-size: 0.9rem; }
+.service-card:nth-child(4) .service-card__prix,
+.service-card:nth-child(5) .service-card__prix { font-size: 0.88rem; padding: 0.35rem 1.3rem; }
 .service-card {
   background: var(--blanc);
   border: 1px solid var(--vert-pastel);
@@ -662,69 +675,105 @@ a  { color: inherit; }
    GALERIE
    ══════════════════════════════════════════ */
 .galerie {
-  padding: 5rem 2rem;
-  background: var(--creme);
+  padding: 5rem 0 4rem;
+  background: #0d1a0d;
 }
-.galerie .section__header { margin-bottom: 2.5rem; }
+.galerie .section__header {
+  padding: 0 2rem;
+  margin-bottom: 3rem;
+}
+.galerie .section__header h2 { color: var(--blanc); }
+.galerie .eyebrow { color: var(--vert-clair); }
 .galerie__paires {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  max-width: none;
+  margin: 0;
 }
 .aa-paire {
   display: flex;
   align-items: stretch;
-  gap: 0.5rem;
+  gap: 3px;
   position: relative;
-  padding-bottom: 1.8rem;
+  padding-bottom: 0;
+  overflow: hidden;
+  border-radius: 0;
 }
 .aa-paire__item {
   flex: 1;
   position: relative;
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  box-shadow: none;
 }
 .aa-paire__item img {
   width: 100%;
-  height: 170px;
+  height: 210px;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.aa-paire__item:hover img { transform: scale(1.04); }
+.aa-paire:hover .aa-paire__item img { transform: scale(1.06); }
 .aa-label {
   position: absolute;
-  top: 7px;
-  left: 7px;
-  padding: 2px 9px;
+  top: 8px;
+  left: 8px;
+  padding: 3px 10px;
   border-radius: var(--radius-pill);
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.aa-label--avant { background: rgba(0,0,0,0.48); color: var(--blanc); }
-.aa-label--apres { background: var(--vert-fonce); color: var(--blanc); }
+.aa-label--avant { background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.92); }
+.aa-label--apres {
+  background: var(--vert-fonce);
+  color: var(--blanc);
+  border: 1px solid rgba(123,198,122,0.5);
+}
 .aa-paire__sep {
-  font-size: 1.2rem;
-  color: var(--vert-moyen);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 28px;
+  height: 28px;
+  background: var(--vert-fonce);
+  border: 2px solid rgba(123,198,122,0.75);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: var(--vert-clair);
   flex-shrink: 0;
-  align-self: center;
-  font-weight: 300;
+  pointer-events: none;
 }
 .aa-paire__race {
   position: absolute;
   bottom: 0;
   left: 0;
+  right: 0;
+  padding: 2.5rem 0.8rem 0.5rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  color: rgba(255,255,255,0.92);
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  color: var(--texte-doux);
-  font-style: italic;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-style: normal;
+  text-align: center;
+  pointer-events: none;
 }
+/* Featured pairs */
+.aa-paire:nth-child(1)  { grid-column: 1 / -1; }
+.aa-paire:nth-child(1) .aa-paire__item img  { height: 360px; }
+.aa-paire:nth-child(8)  { grid-column: 1 / -1; }
+.aa-paire:nth-child(8) .aa-paire__item img  { height: 360px; }
 
 /* ══════════════════════════════════════════
    CONTACT
@@ -867,12 +916,28 @@ a  { color: inherit; }
   }
   .about__frame { max-width: 260px; margin: 0 auto; }
 
-  .galerie__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .galerie__item--large {
-    grid-column: span 2;
-  }
+  /* Services → 2 colonnes */
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .service-card:nth-child(1),
+  .service-card:nth-child(2),
+  .service-card:nth-child(3),
+  .service-card:nth-child(4),
+  .service-card:nth-child(5) { grid-column: span 1 !important; }
+  .service-card:nth-child(5) { grid-column: 1 / span 2 !important; }
+  .service-card:nth-child(4) .service-card__img,
+  .service-card:nth-child(5) .service-card__img { aspect-ratio: 1; }
+  .service-card:nth-child(4) h3,
+  .service-card:nth-child(5) h3 { font-size: 0.88rem; }
+  .service-card:nth-child(4) p,
+  .service-card:nth-child(5) p { font-size: 0.83rem; }
+
+  /* Galerie → 2 colonnes */
+  .galerie__paires { grid-template-columns: 1fr 1fr; }
+  .aa-paire:nth-child(1) { grid-column: 1 / -1; }
+  .aa-paire:nth-child(8) { grid-column: 1 / -1; }
+  .aa-paire__item img { height: 160px; }
+  .aa-paire:nth-child(1) .aa-paire__item img,
+  .aa-paire:nth-child(8) .aa-paire__item img { height: 260px; }
 
   .contact__cards { flex-direction: column; align-items: center; }
   .contact__card { width: 100%; max-width: 300px; }
@@ -883,6 +948,15 @@ a  { color: inherit; }
 
 @media (max-width: 480px) {
   .section { padding: 3.5rem 1.2rem; }
-  .galerie__grid { grid-template-columns: 1fr; }
-  .galerie__item--large { grid-column: span 1; aspect-ratio: 1; }
+
+  /* Services → 1 colonne */
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card:nth-child(n) { grid-column: span 1 !important; }
+
+  /* Galerie → reste en 2 colonnes mais plus compact */
+  .aa-paire__item img { height: 120px; }
+  .aa-paire:nth-child(1) .aa-paire__item img,
+  .aa-paire:nth-child(8) .aa-paire__item img { height: 180px; }
+  .aa-paire__race { font-size: 0.58rem; padding: 1.5rem 0.4rem 0.35rem; }
+  .aa-paire__sep { width: 22px; height: 22px; font-size: 0.55rem; }
 }
