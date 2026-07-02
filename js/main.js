@@ -60,4 +60,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ── LIGHTBOX CONSEILS ── */
+  const lightbox = document.createElement('div');
+  lightbox.className = 'lightbox';
+  lightbox.setAttribute('role', 'dialog');
+  lightbox.setAttribute('aria-modal', 'true');
+  lightbox.innerHTML =
+    '<div class="lightbox__inner">' +
+      '<button class="lightbox__close" aria-label="Fermer">✕</button>' +
+      '<img class="lightbox__img" src="" alt="">' +
+    '</div>';
+  document.body.appendChild(lightbox);
+
+  const lbImg   = lightbox.querySelector('.lightbox__img');
+  const lbClose = lightbox.querySelector('.lightbox__close');
+
+  function openLightbox(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.conseil-post').forEach(post => {
+    post.style.cursor = 'zoom-in';
+    post.addEventListener('click', () => {
+      const img = post.querySelector('img');
+      openLightbox(img.src, post.querySelector('h3').textContent);
+    });
+  });
+
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  lbClose.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
 });
