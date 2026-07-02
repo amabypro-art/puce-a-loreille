@@ -672,6 +672,40 @@ a  { color: inherit; }
 }
 
 /* ══════════════════════════════════════════
+   POSTS CONSEILS
+   ══════════════════════════════════════════ */
+.posts-conseils {
+  background: var(--vert-xlight);
+  padding: 0 2rem 4rem;
+}
+.posts-conseils__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.post-conseil {
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.post-conseil:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-hover);
+}
+.post-conseil img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.post-conseil:hover img { transform: scale(1.04); }
+
+/* ══════════════════════════════════════════
    GALERIE
    ══════════════════════════════════════════ */
 .galerie {
@@ -915,6 +949,9 @@ a  { color: inherit; }
     gap: 2.5rem;
   }
   .about__frame { max-width: 260px; margin: 0 auto; }
+
+  /* Posts conseils → 2 colonnes */
+  .posts-conseils__grid { grid-template-columns: repeat(2, 1fr); }
 
   /* Services → 2 colonnes */
   .services-grid { grid-template-columns: 1fr 1fr; }
