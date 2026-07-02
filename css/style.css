@@ -226,8 +226,8 @@ a  { color: inherit; }
   min-height: 88vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 5rem 3rem 0;
+  justify-content: flex-start;
+  padding: 5rem 3rem 0 max(3rem, 5%);
   position: relative;
   overflow-x: clip;
   overflow-y: visible;
@@ -243,10 +243,10 @@ a  { color: inherit; }
 }
 .hero__content {
   position: relative;
-  z-index: 2;
-  max-width: 720px;
+  z-index: 3;
+  max-width: min(560px, 46vw);
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
 }
 
@@ -267,11 +267,10 @@ a  { color: inherit; }
   margin-right: auto;
 }
 .hero__title {
-  font-size: clamp(1.6rem, 3.8vw, 3rem);
+  font-size: clamp(1.4rem, 3.2vw, 2.6rem);
   color: var(--vert-fonce);
-  line-height: 1.12;
+  line-height: 1.18;
   margin-bottom: 1.2rem;
-  white-space: nowrap;
 }
 .hero__title em {
   font-style: normal;
