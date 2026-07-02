@@ -613,6 +613,52 @@ a  { color: inherit; }
 }
 
 /* ══════════════════════════════════════════
+   CONSEILS
+   ══════════════════════════════════════════ */
+.conseils {
+  padding: 5rem 2rem;
+  background: var(--vert-xlight);
+}
+.conseils__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.conseil-card {
+  background: var(--blanc);
+  border: 1px solid var(--vert-pastel);
+  border-radius: var(--radius-md);
+  padding: 1.8rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.conseil-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+.conseil-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+.conseil-card h3 {
+  font-size: 1rem;
+  color: var(--vert-fonce);
+  margin: 0;
+}
+.conseil-card p {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--texte-doux);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════
    GALERIE
    ══════════════════════════════════════════ */
 .galerie {
