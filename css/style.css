@@ -788,14 +788,13 @@ a  { color: inherit; }
 }
 .carousel__photo img {
   width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
+  height: auto;
   display: block;
   border-radius: var(--radius-md);
 }
 .carousel__placeholder {
   width: 100%;
-  aspect-ratio: 4/5;
+  aspect-ratio: 4/3;
   background: #e8e8e4;
   background-image: repeating-linear-gradient(
     45deg,
