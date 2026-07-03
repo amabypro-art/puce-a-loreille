@@ -275,7 +275,7 @@ a  { color: inherit; }
 }
 .hero__title em {
   font-style: normal;
-  color: var(--vert-moyen);
+  color: var(--vert-clair);
 }
 .hero__sub {
   color: var(--texte-doux);
