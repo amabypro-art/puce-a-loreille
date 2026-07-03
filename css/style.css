@@ -42,6 +42,37 @@ body {
 img { max-width: 100%; display: block; }
 a  { color: inherit; }
 
+/* ── PAW PRINT BACKGROUND ── */
+:root {
+  --paw: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZWxsaXBzZSBjeD0iNTAiIGN5PSI2MiIgcng9IjIwIiByeT0iMTYiIGZpbGw9IiUyMzRhOGMzZiIvPjxlbGxpcHNlIGN4PSIyMiIgY3k9IjQwIiByeD0iMTAiIHJ5PSIxMyIgZmlsbD0iJTIzNGE4YzNmIi8+PGVsbGlwc2UgY3g9IjM4IiBjeT0iMjgiIHJ4PSIxMCIgcnk9IjEzIiBmaWxsPSIlMjM0YThjM2YiLz48ZWxsaXBzZSBjeD0iNjIiIGN5PSIyOCIgcng9IjEwIiByeT0iMTMiIGZpbGw9IiUyMzRhOGMzZiIvPjxlbGxpcHNlIGN4PSI3OCIgY3k9IjQwIiByeD0iMTAiIHJ5PSIxMyIgZmlsbD0iJTIzNGE4YzNmIi8+PC9zdmc+Cg==");
+}
+.section,
+.conseils,
+.avis-section { position: relative; }
+
+.section::before,
+.conseils::before,
+.avis-section::before,
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: var(--paw), var(--paw);
+  background-repeat: repeat, repeat;
+  background-size: 200px 200px, 200px 200px;
+  background-position: 0 0, 100px 100px;
+  opacity: 0.05;
+}
+
+/* Cruelty-Free tag */
+.tag--cruelty {
+  background: var(--vert-fonce);
+  color: var(--blanc);
+  font-weight: 700;
+}
+
 /* ── UTILITAIRES ── */
 .eyebrow {
   font-family: var(--font-sans);
