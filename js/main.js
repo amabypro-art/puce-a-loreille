@@ -288,7 +288,14 @@ document.addEventListener('DOMContentLoaded', () => {
     cBtnNext.addEventListener('click', () => cGoTo(cCurrent + 1));
 
     cCards.forEach(card => {
-      card.addEventListener('click', () => card.classList.toggle('is-flipped'));
+      card.addEventListener('click', e => {
+        if (card.classList.contains('is-flipped')) {
+          const img = card.querySelector('.conseil-card__back img');
+          openLightbox(img.src, card.querySelector('.conseil-card__back-overlay').textContent.trim());
+        } else {
+          card.classList.add('is-flipped');
+        }
+      });
     });
 
     let cTouchX = 0;

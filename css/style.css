@@ -139,6 +139,16 @@ a  { color: inherit; }
 }
 .btn--rdv:hover { box-shadow: 0 8px 32px rgba(123,198,122,0.5); }
 
+.contact__vitrine {
+  width: 100%;
+  max-width: 780px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
 /* ══════════════════════════════════════════
    NAV
    ══════════════════════════════════════════ */
@@ -595,6 +605,7 @@ a  { color: inherit; }
   perspective: 1200px;
   cursor: pointer;
   user-select: none;
+  contain: paint;
 }
 .conseil-card__inner {
   width: 100%;
@@ -639,12 +650,17 @@ a  { color: inherit; }
 }
 .conseil-card__back {
   transform: rotateY(180deg);
+  clip-path: inset(0 round var(--radius-md));
 }
 .conseil-card__back img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  cursor: zoom-in;
+}
+.conseil-card.is-flipped {
+  cursor: zoom-in;
 }
 .conseil-card__back-overlay {
   position: absolute;
