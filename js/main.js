@@ -23,11 +23,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── NAV SHADOW AU SCROLL ── */
-  const nav = document.getElementById('nav');
+  /* ── NAV SHADOW + SCROLL PROGRESS + BACK TO TOP ── */
+  const nav             = document.getElementById('nav');
+  const progressFill    = document.querySelector('.scroll-progress__fill');
+  const backToTopBtn    = document.querySelector('.back-to-top');
+
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+    const scrollTop  = window.scrollY;
+    const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+    const pct        = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+    nav.classList.toggle('nav--scrolled', scrollTop > 40);
+    progressFill.style.width = pct + '%';
+    backToTopBtn.classList.toggle('visible', scrollTop > 320);
   }, { passive: true });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
   /* ── FADE-UP ANIMATIONS (IntersectionObserver) ── */
   const fadeEls = document.querySelectorAll('.fade-up');

@@ -962,6 +962,62 @@ a  { color: inherit; }
 }
 
 /* ══════════════════════════════════════════
+   SCROLL PROGRESS + BACK TO TOP
+   ══════════════════════════════════════════ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(10,28,10,0.35);
+  backdrop-filter: blur(4px);
+  z-index: 101;
+  pointer-events: none;
+}
+.scroll-progress__fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--vert-moyen), var(--vert-clair));
+  transition: width 0.08s linear;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 1.8rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(20,48,20,0.62);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--blanc);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+  pointer-events: none;
+}
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  background: rgba(45,90,39,0.82);
+}
+.back-to-top:focus-visible {
+  outline: 2px solid var(--vert-clair);
+  outline-offset: 3px;
+}
+
+/* ══════════════════════════════════════════
    RESPONSIVE
    ══════════════════════════════════════════ */
 @media (max-width: 768px) {
