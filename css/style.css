@@ -799,10 +799,16 @@ a  { color: inherit; }
   background: #f0f0ec;
   border-radius: var(--radius-md);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .carousel__slide--vertical .carousel__photo img {
   max-height: 480px;
+  width: auto;
+  height: auto;
   object-fit: contain;
+  border-radius: var(--radius-md);
 }
 .carousel__placeholder {
   width: 100%;
