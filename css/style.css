@@ -888,7 +888,8 @@ a  { color: inherit; }
   transition: background var(--transition);
 }
 .contact__card:hover { background: rgba(255,255,255,0.13); }
-.contact__card > span { font-size: 1.3rem; }
+.contact__card > span { display: flex; opacity: 0.7; flex-shrink: 0; }
+.contact__card-value--email { font-size: 0.78rem; word-break: break-all; }
 .contact__card-label { color: rgba(255,255,255,0.48); font-size: 0.72rem; margin-bottom: 2px; }
 .contact__card-value {
   font-weight: 700;
@@ -979,11 +980,21 @@ a  { color: inherit; }
   .nav__burger { display: flex; }
 
   .hero {
-    padding: 4rem 1.5rem 3rem;
-    min-height: 70vh;
+    padding: 4rem 1.5rem 8rem;
+    min-height: 78vh;
   }
-  .hero__illustration { display: none; }
-  .hero__content { max-width: 100%; margin-bottom: 2rem; }
+  .hero__illustration {
+    width: min(130px, 33vw);
+    bottom: 0;
+    left: 0;
+  }
+  .hero__illustration--right {
+    left: auto;
+    right: 0;
+    bottom: 0;
+    width: min(110px, 28vw);
+  }
+  .hero__content { max-width: 100%; margin-bottom: 1.5rem; }
   .hero__title { font-size: 1.8rem; white-space: normal; }
 
   .about__inner {
@@ -1010,13 +1021,22 @@ a  { color: inherit; }
   .service-card:nth-child(4) p,
   .service-card:nth-child(5) p { font-size: 0.83rem; }
 
-  /* Carousel mobile */
+  /* Carousel mobile — avant en haut, après en bas */
+  .carousel__pair { flex-direction: column; }
+  .carousel__arrow { display: none; }
   .carousel__btn--prev { left: 4px; }
   .carousel__btn--next { right: 4px; }
   .carousel { padding: 0 0 3.5rem; }
 
-  .contact__cards { flex-direction: column; align-items: center; }
-  .contact__card { width: 100%; max-width: 300px; }
+  /* Contact mobile — grille 2×2 */
+  .contact__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 0.75rem;
+  }
+  .contact__card { width: auto; max-width: none; text-align: left; }
+  .contact__card--social { grid-column: 1 / -1; }
 
   .stars-bar { gap: 1rem; }
   .stars-bar__sep { display: none; }
@@ -1030,6 +1050,9 @@ a  { color: inherit; }
   .service-card:nth-child(n) { grid-column: span 1 !important; }
 
   .carousel__pair { gap: 0.5rem; }
-  .carousel__arrow { font-size: 1rem; }
   .carousel__btn { width: 44px; height: 44px; font-size: 1.4rem; }
+
+  /* Contact → 1 colonne sur très petit écran */
+  .contact__cards { grid-template-columns: 1fr; }
+  .contact__card--social { grid-column: auto; }
 }
