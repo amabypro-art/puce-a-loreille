@@ -1049,7 +1049,7 @@ a  { color: inherit; }
   .hero__illustration--right {
     left: auto;
     right: 0;
-    bottom: clamp(260px, 57vh, 420px);
+    bottom: clamp(80px, 20vh, 160px);
     width: min(380px, 30vw);
   }
   .hero__content { max-width: 100%; margin-bottom: 1.5rem; }
