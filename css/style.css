@@ -978,6 +978,23 @@ a  { color: inherit; }
   transition: color var(--transition);
 }
 .contact__card-value:hover { color: var(--vert-clair); }
+.contact__card--social { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+.social-links { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.4rem; }
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.social-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+.social-btn--fb { background: #1877f2; color: #fff; }
+.social-btn--ig { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); color: #fff; }
 
 /* ══════════════════════════════════════════
    FOOTER
