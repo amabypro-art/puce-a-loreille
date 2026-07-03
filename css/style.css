@@ -786,6 +786,13 @@ a  { color: inherit; }
   border-radius: var(--radius-md);
   overflow: hidden;
 }
+.carousel__photo img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-md);
+}
 .carousel__placeholder {
   width: 100%;
   aspect-ratio: 4/5;
