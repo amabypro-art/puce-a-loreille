@@ -792,10 +792,14 @@ a  { color: inherit; }
   display: block;
   border-radius: var(--radius-md);
 }
+.carousel__slide--vertical .carousel__photo {
+  background: #f0f0ec;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
 .carousel__slide--vertical .carousel__photo img {
   max-height: 480px;
   object-fit: contain;
-  background: #f0f0ec;
 }
 .carousel__placeholder {
   width: 100%;
