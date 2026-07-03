@@ -1041,10 +1041,10 @@ a  { color: inherit; }
     padding: 4rem 1.5rem 8rem;
     min-height: 78vh;
     background:
-      linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,0) 28%),
+      linear-gradient(to bottom, #fff 0%, #fff 38%, rgba(255,255,255,0) 50%),
       url('../images/hero-bg-tropical.png') bottom center / cover no-repeat;
   }
-  .hero__actions { transform: translateX(-2cm); }
+  .hero__actions { transform: translateX(-1cm); }
   .hero__illustration {
     width: min(630px, 58vw);
     bottom: -10px;
