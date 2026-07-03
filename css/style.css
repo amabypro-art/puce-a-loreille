@@ -392,10 +392,13 @@ a  { color: inherit; }
 /* ══════════════════════════════════════════
    SERVICES
    ══════════════════════════════════════════ */
+.section--services {
+  max-width: 1200px;
+}
 .services-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 1.4rem;
+  gap: 2.2rem;
 }
 .service-card:nth-child(1),
 .service-card:nth-child(2),
