@@ -1042,14 +1042,14 @@ a  { color: inherit; }
     min-height: 78vh;
   }
   .hero__illustration {
-    width: min(420px, 39vw);
+    width: min(630px, 58vw);
     bottom: -10px;
     left: 0;
   }
   .hero__illustration--right {
     left: auto;
     right: 0;
-    bottom: 90px;
+    bottom: clamp(140px, 35vh, 260px);
     width: min(380px, 30vw);
   }
   .hero__content { max-width: 100%; margin-bottom: 1.5rem; }
