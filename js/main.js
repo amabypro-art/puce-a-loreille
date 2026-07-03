@@ -270,7 +270,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function cGoTo(idx) {
-      cCards[cCurrent].classList.remove('is-flipped');
+      const prev = cCards[cCurrent];
+      prev.classList.remove('is-flipped');
+      prev.style.height = '';
       cCurrent = (idx + cTotal) % cTotal;
       cTrack.style.transform = 'translateX(-' + cCurrent * 100 + '%)';
       cDotsEl.querySelectorAll('.conseils__dot').forEach((d, i) => {
@@ -288,11 +290,23 @@ document.addEventListener('DOMContentLoaded', () => {
     cBtnNext.addEventListener('click', () => cGoTo(cCurrent + 1));
 
     cCards.forEach(card => {
-      card.addEventListener('click', e => {
+      const backImg = card.querySelector('.conseil-card__back img');
+
+      function flipOpen() {
+        if (backImg.naturalWidth > 0) {
+          const ratio = backImg.naturalHeight / backImg.naturalWidth;
+          card.style.height = Math.round(card.offsetWidth * ratio) + 'px';
+        }
+        card.classList.add('is-flipped');
+      }
+
+      card.addEventListener('click', () => {
         if (card.classList.contains('is-flipped')) {
-          const img = card.querySelector('.conseil-card__back img');
-          openLightbox(img.src, card.querySelector('.conseil-card__back-overlay').textContent.trim());
+          openLightbox(backImg.src, card.querySelector('.conseil-card__back-overlay').textContent.trim());
+        } else if (backImg.complete && backImg.naturalWidth > 0) {
+          flipOpen();
         } else {
+          backImg.addEventListener('load', flipOpen, { once: true });
           card.classList.add('is-flipped');
         }
       });

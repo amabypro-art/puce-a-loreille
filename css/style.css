@@ -139,14 +139,26 @@ a  { color: inherit; }
 }
 .btn--rdv:hover { box-shadow: 0 8px 32px rgba(123,198,122,0.5); }
 
-.contact__vitrine {
+.contact__vitrine-frame {
+  max-width: 360px;
+  margin: 0 auto 2.5rem;
+  background: #fff;
+  padding: 10px 10px 36px;
+  border-radius: 3px;
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.08),
+    0 14px 40px rgba(0,0,0,0.2);
+  transform: rotate(-1.8deg);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.contact__vitrine-frame:hover {
+  transform: rotate(0deg) scale(1.03);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1), 0 28px 60px rgba(0,0,0,0.22);
+}
+.contact__vitrine-frame img {
   width: 100%;
-  max-width: 780px;
-  border-radius: var(--radius-md);
-  object-fit: cover;
   display: block;
-  margin: 0 auto 2rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  border-radius: 1px;
 }
 
 /* ══════════════════════════════════════════
@@ -601,11 +613,12 @@ a  { color: inherit; }
 }
 .conseil-card {
   min-width: 100%;
-  height: 320px;
+  height: 260px;
   perspective: 1200px;
   cursor: pointer;
   user-select: none;
   contain: paint;
+  transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .conseil-card__inner {
   width: 100%;
