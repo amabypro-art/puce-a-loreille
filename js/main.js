@@ -182,14 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mouseup', onLbMouseUp);
   });
 
-  document.querySelectorAll('.conseil-post').forEach(post => {
-    post.style.cursor = 'zoom-in';
-    post.addEventListener('click', () => {
-      const img = post.querySelector('img');
-      openLightbox(img.src, post.querySelector('h3').textContent);
-    });
-  });
-
   lightbox.addEventListener('click', e => {
     if (e.target === lightbox) closeLightbox();
   });
@@ -254,6 +246,66 @@ document.addEventListener('DOMContentLoaded', () => {
     carouselEl.addEventListener('mouseleave', resetAuto);
 
     resetAuto();
+  }
+
+  /* ── CAROUSEL CONSEILS (flashcards) ── */
+  const conseilsEl = document.querySelector('.conseils__carousel');
+  if (conseilsEl) {
+    const cTrack    = conseilsEl.querySelector('.conseils__track');
+    const cCards    = conseilsEl.querySelectorAll('.conseil-card');
+    const cBtnPrev  = conseilsEl.querySelector('.conseils__btn--prev');
+    const cBtnNext  = conseilsEl.querySelector('.conseils__btn--next');
+    const cDotsEl   = conseilsEl.querySelector('.conseils__dots');
+    const cTotal    = cCards.length;
+    let cCurrent    = 0;
+    let cAutoTimer;
+
+    cCards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'conseils__dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Conseil ' + (i + 1));
+      dot.addEventListener('click', () => cGoTo(i));
+      cDotsEl.appendChild(dot);
+    });
+
+    function cGoTo(idx) {
+      cCards[cCurrent].classList.remove('is-flipped');
+      cCurrent = (idx + cTotal) % cTotal;
+      cTrack.style.transform = 'translateX(-' + cCurrent * 100 + '%)';
+      cDotsEl.querySelectorAll('.conseils__dot').forEach((d, i) => {
+        d.classList.toggle('active', i === cCurrent);
+      });
+      cResetAuto();
+    }
+
+    function cResetAuto() {
+      clearInterval(cAutoTimer);
+      cAutoTimer = setInterval(() => cGoTo(cCurrent + 1), 6000);
+    }
+
+    cBtnPrev.addEventListener('click', () => cGoTo(cCurrent - 1));
+    cBtnNext.addEventListener('click', () => cGoTo(cCurrent + 1));
+
+    cCards.forEach(card => {
+      card.addEventListener('click', () => card.classList.toggle('is-flipped'));
+    });
+
+    let cTouchX = 0;
+    conseilsEl.addEventListener('touchstart', e => { cTouchX = e.touches[0].clientX; }, { passive: true });
+    conseilsEl.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - cTouchX;
+      if (Math.abs(dx) > 40) cGoTo(cCurrent + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+
+    conseilsEl.addEventListener('mouseenter', () => clearInterval(cAutoTimer));
+    conseilsEl.addEventListener('mouseleave', cResetAuto);
+    conseilsEl.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  cGoTo(cCurrent - 1);
+      if (e.key === 'ArrowRight') cGoTo(cCurrent + 1);
+    });
+
+    cResetAuto();
   }
 
 });
