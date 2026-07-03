@@ -1078,7 +1078,7 @@ a  { color: inherit; }
   .service-card:nth-child(5) p { font-size: 0.83rem; }
 
   /* Carousel mobile — avant en haut, après en bas */
-  .carousel__pair { flex-direction: column; }
+  .carousel__pair { flex-direction: column; align-items: stretch; }
   .carousel__arrow { display: none; }
   .carousel__btn--prev { left: 4px; }
   .carousel__btn--next { right: 4px; }
