@@ -1033,22 +1033,24 @@ a  { color: inherit; }
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
   }
   .nav__links.open { display: flex; }
-  .nav__burger { display: flex; }
+  .nav__burger { display: flex; grid-column: 2; }
+  .nav { grid-template-columns: auto 1fr; padding: 0.9rem 1.2rem; }
+  .nav__title { white-space: nowrap; }
 
   .hero {
     padding: 4rem 1.5rem 8rem;
     min-height: 78vh;
   }
   .hero__illustration {
-    width: min(130px, 33vw);
-    bottom: 0;
+    width: min(420px, 39vw);
+    bottom: -10px;
     left: 0;
   }
   .hero__illustration--right {
     left: auto;
     right: 0;
-    bottom: 0;
-    width: min(110px, 28vw);
+    bottom: 90px;
+    width: min(380px, 30vw);
   }
   .hero__content { max-width: 100%; margin-bottom: 1.5rem; }
   .hero__title { font-size: 1.8rem; white-space: normal; }
