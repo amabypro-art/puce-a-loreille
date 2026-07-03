@@ -147,6 +147,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Glisser pour naviguer
+  function onLbMouseMove(e) {
+    lbTX = e.clientX - panStartX;
+    lbTY = e.clientY - panStartY;
+    lbApply(false);
+  }
+  function onLbMouseUp() {
+    isPanning = false;
+    lbImg.style.cursor = lbScale > 1 ? 'grab' : 'zoom-in';
+    document.removeEventListener('mousemove', onLbMouseMove);
+    document.removeEventListener('mouseup', onLbMouseUp);
+  }
   lbImg.addEventListener('mousedown', e => {
     if (lbScale <= 1) return;
     isPanning  = true;
@@ -154,17 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
     panStartY  = e.clientY - lbTY;
     lbImg.style.cursor = 'grabbing';
     e.preventDefault();
-  });
-  document.addEventListener('mousemove', e => {
-    if (!isPanning) return;
-    lbTX = e.clientX - panStartX;
-    lbTY = e.clientY - panStartY;
-    lbApply(false);
-  });
-  document.addEventListener('mouseup', () => {
-    if (!isPanning) return;
-    isPanning = false;
-    lbImg.style.cursor = lbScale > 1 ? 'grab' : 'zoom-in';
+    document.addEventListener('mousemove', onLbMouseMove);
+    document.addEventListener('mouseup', onLbMouseUp);
   });
 
   document.querySelectorAll('.conseil-post').forEach(post => {
@@ -179,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === lightbox) closeLightbox();
   });
   lbClose.addEventListener('click', closeLightbox);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
 
   /* ── CAROUSEL GALERIE ── */
   const carouselEl = document.querySelector('.carousel');
