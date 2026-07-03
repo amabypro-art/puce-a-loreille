@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amabypro-art.github.io/puce-a-loreille/sitemap.xml
