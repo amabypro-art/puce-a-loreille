@@ -1052,12 +1052,13 @@ a  { color: inherit; }
   }
   .hero__illustration--right {
     left: auto;
-    right: -1cm;
+    right: -0.5cm;
     bottom: clamp(80px, 20vh, 160px);
     width: min(380px, 30vw);
   }
   .hero__content { max-width: 100%; margin-bottom: 1.5rem; }
-  .hero__title { font-size: 1.8rem; white-space: normal; }
+  .hero__title { font-size: 1.8rem; white-space: normal; margin-top: -2.5cm; }
+  .hero__actions { margin-top: 2.5cm; }
 
   .about__inner {
     grid-template-columns: 1fr;
