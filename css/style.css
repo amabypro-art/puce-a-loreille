@@ -248,7 +248,7 @@ a  { color: inherit; }
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  transform: translateY(-2cm);
+  transform: translateY(-4cm);
 }
 
 .hero__badge {
