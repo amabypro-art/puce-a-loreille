@@ -181,4 +181,64 @@ document.addEventListener('DOMContentLoaded', () => {
   lbClose.addEventListener('click', closeLightbox);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
+  /* ── CAROUSEL GALERIE ── */
+  const carouselEl = document.querySelector('.carousel');
+  if (carouselEl) {
+    const track   = carouselEl.querySelector('.carousel__track');
+    const slides  = carouselEl.querySelectorAll('.carousel__slide');
+    const btnPrev = carouselEl.querySelector('.carousel__btn--prev');
+    const btnNext = carouselEl.querySelector('.carousel__btn--next');
+    const dotsEl  = carouselEl.querySelector('.carousel__dots');
+    const total   = slides.length;
+    let current   = 0;
+    let autoTimer;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel__dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Transformation ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(dot);
+    });
+
+    function goTo(idx) {
+      current = (idx + total) % total;
+      track.style.transform = 'translateX(-' + current * 100 + '%)';
+      dotsEl.querySelectorAll('.carousel__dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+      resetAuto();
+    }
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(current + 1), 5000);
+    }
+
+    btnPrev.addEventListener('click', () => goTo(current - 1));
+    btnNext.addEventListener('click', () => goTo(current + 1));
+
+    // Keyboard
+    carouselEl.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  goTo(current - 1);
+      if (e.key === 'ArrowRight') goTo(current + 1);
+    });
+
+    // Touch swipe
+    let touchX = 0;
+    carouselEl.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    carouselEl.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+
+    // Pause on hover
+    carouselEl.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    carouselEl.addEventListener('mouseleave', resetAuto);
+
+    resetAuto();
+  }
+
 });
