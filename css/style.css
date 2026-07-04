@@ -353,6 +353,15 @@ a  { color: inherit; }
 }
 .stars { color: var(--dore); letter-spacing: 2px; }
 .stars-bar__sep { color: rgba(255,255,255,0.18); }
+.stars-bar__link {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.stars-bar__link:hover { opacity: 0.75; }
 
 /* ══════════════════════════════════════════
    SERVICES

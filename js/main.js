@@ -191,6 +191,9 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── CAROUSEL GALERIE ── */
   const carouselEl = document.querySelector('.carousel');
   if (carouselEl) {
+    if (window.innerWidth < 768) {
+      carouselEl.querySelectorAll('[data-mobile-hidden]').forEach(el => el.remove());
+    }
     const track   = carouselEl.querySelector('.carousel__track');
     const slides  = carouselEl.querySelectorAll('.carousel__slide');
     const btnPrev = carouselEl.querySelector('.carousel__btn--prev');
