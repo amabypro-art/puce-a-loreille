@@ -535,14 +535,29 @@ a  { color: inherit; }
   max-width: unset;
 }
 .avis-section .section__header { max-width: 960px; margin-left: auto; margin-right: auto; }
-.avis-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.4rem;
-  max-width: 960px;
-  margin: 0 auto;
+.avis-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  margin: 0 -2rem;
+  padding: 0.5rem 0 1rem;
+}
+.avis-marquee__track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marquee-avis 32s linear infinite;
+}
+.avis-marquee:hover .avis-marquee__track {
+  animation-play-state: paused;
+}
+@keyframes marquee-avis {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 .avis-card {
+  width: 320px;
+  flex-shrink: 0;
   background: var(--vert-xlight);
   border: 1px solid var(--vert-pastel);
   border-radius: var(--radius-md);
@@ -550,9 +565,12 @@ a  { color: inherit; }
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  transition: transform var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
-.avis-card:hover { transform: translateY(-3px); }
+.avis-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(45,90,39,0.12);
+}
 .avis-card__stars {
   color: var(--dore);
   font-size: 1.05rem;
