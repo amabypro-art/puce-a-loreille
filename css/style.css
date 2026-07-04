@@ -996,7 +996,7 @@ a  { color: inherit; }
 .contact__inner { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
 .contact__layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   gap: 4rem;
   align-items: center;
 }
