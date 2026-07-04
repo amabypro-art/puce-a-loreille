@@ -188,6 +188,16 @@ document.addEventListener('DOMContentLoaded', () => {
   lbClose.addEventListener('click', closeLightbox);
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
 
+  /* ── MARQUEE AVIS — pause au tap sur mobile ── */
+  const marqueeTrack = document.querySelector('.avis-marquee__track');
+  if (marqueeTrack) {
+    let marqueePaused = false;
+    document.querySelector('.avis-marquee').addEventListener('touchstart', () => {
+      marqueePaused = !marqueePaused;
+      marqueeTrack.style.animationPlayState = marqueePaused ? 'paused' : 'running';
+    }, { passive: true });
+  }
+
   /* ── CAROUSEL GALERIE ── */
   const carouselEl = document.querySelector('.carousel');
   if (carouselEl) {
