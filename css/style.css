@@ -845,7 +845,7 @@ a  { color: inherit; }
 /* ── CAROUSEL ── */
 .carousel {
   position: relative;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 0 4rem;
 }
