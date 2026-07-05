@@ -244,7 +244,8 @@ a  { color: inherit; }
    HERO
    ══════════════════════════════════════════ */
 .hero {
-  background: url('../images/hero-bg-tropical.png') center / cover no-repeat;
+  background: url('../images/hero-bg-tropical.webp') center / cover no-repeat;
+  background: image-set(url('../images/hero-bg-tropical.webp') type('image/webp'), url('../images/hero-bg-tropical.png') type('image/png')) center / cover no-repeat;
   min-height: 88vh;
   display: flex;
   align-items: center;
@@ -485,7 +486,7 @@ a  { color: inherit; }
   aspect-ratio: 4/5;
   border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
   background:
-    url('../images/cindy-et-chien.png') center 30% / auto 130% no-repeat,
+    url('../images/cindy-et-chien.webp') center 30% / auto 130% no-repeat,
     linear-gradient(135deg, var(--vert-pastel), var(--vert-clair));
 }
 .about__badge {
@@ -1188,7 +1189,7 @@ a  { color: inherit; }
     min-height: 78vh;
     background:
       linear-gradient(to bottom, #fff 0%, #fff 38%, rgba(255,255,255,0) 50%),
-      url('../images/hero-bg-tropical.png') bottom center / cover no-repeat;
+      url('../images/hero-bg-tropical.webp') bottom center / cover no-repeat;
   }
   .hero__actions { transform: translateX(-1cm); }
   .hero__illustration {
