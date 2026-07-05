@@ -1198,7 +1198,7 @@ a  { color: inherit; }
   }
   .hero__illustration--right {
     left: auto;
-    right: 0;
+    right: -0.5cm;
     bottom: clamp(80px, 20vh, 160px);
     width: min(380px, 42vw);
   }
@@ -1241,12 +1241,15 @@ a  { color: inherit; }
 
   /* Contact mobile — colonne unique */
   .contact__layout { grid-template-columns: 1fr; gap: 2.5rem; }
-  .contact__vitrine-frame { max-width: 340px; margin: 0 auto; }
+  .contact__vitrine-frame { max-width: 340px; margin: 0 auto; transform: translateX(2cm) rotate(-1.8deg); }
+  .contact__vitrine-frame:hover { transform: translateX(2cm) rotate(0deg); }
   .contact__cards { flex-direction: column; }
   .contact__card { width: auto; max-width: none; text-align: left; }
 
   .stars-bar { gap: 1rem; }
   .stars-bar__sep { display: none; }
+  .stars-bar__item--desktop { display: none; }
+  .stars-bar__sep--desktop { display: none; }
 }
 
 @media (max-width: 480px) {
