@@ -1060,6 +1060,8 @@ a  { color: inherit; }
   transition: width 0.08s linear;
 }
 
+.btn-rdv-sticky { display: none; }
+
 .back-to-top {
   position: fixed;
   bottom: 1.8rem;
@@ -1207,6 +1209,32 @@ a  { color: inherit; }
   .stars-bar__sep { display: none; }
   .stars-bar__item--desktop { display: none; }
   .stars-bar__sep--desktop { display: none; }
+
+  /* Bouton RDV fixe */
+  .btn-rdv-sticky {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: fixed;
+    bottom: 1.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--vert-fonce);
+    color: var(--blanc);
+    padding: 0.85rem 1.9rem;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 4px 24px rgba(20,40,18,0.5), 0 0 0 1px rgba(255,255,255,0.07);
+    z-index: 200;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .btn-rdv-sticky:active {
+    transform: translateX(-50%) scale(0.96);
+    box-shadow: 0 2px 12px rgba(20,40,18,0.4);
+  }
 }
 
 @media (max-width: 480px) {
