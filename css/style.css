@@ -129,11 +129,22 @@ a  { color: inherit; }
 .btn--outline:hover { background: var(--vert-xlight); }
 
 .btn--rdv {
-  background: var(--vert-clair);
+  background-image:
+    linear-gradient(to right, var(--blanc) 0%, var(--blanc) 47%, var(--vert-fonce) 53%, var(--vert-fonce) 100%),
+    linear-gradient(var(--vert-clair), var(--vert-clair));
+  background-size: 300% 100%, 100% 100%;
+  background-position: 100% 0, 0 0;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  -webkit-text-fill-color: transparent;
   color: var(--vert-fonce);
   font-size: 1rem;
   padding: 1rem 2.5rem;
   box-shadow: 0 4px 20px rgba(123,198,122,0.35);
+  transition: transform var(--transition), box-shadow var(--transition), background-position 0.55s ease;
+}
+.btn--rdv:hover {
+  background-position: 0% 0, 0 0;
 }
 
 .contact__vitrine-frame {
@@ -205,12 +216,23 @@ a  { color: inherit; }
 }
 .nav__links a:hover { color: var(--vert-clair); }
 .nav__cta {
-  background: var(--vert-clair) !important;
+  background-image:
+    linear-gradient(to right, var(--blanc) 0%, var(--blanc) 47%, var(--vert-fonce) 53%, var(--vert-fonce) 100%),
+    linear-gradient(var(--vert-clair), var(--vert-clair)) !important;
+  background-size: 300% 100%, 100% 100% !important;
+  background-position: 100% 0, 0 0 !important;
+  -webkit-background-clip: text, padding-box !important;
+  background-clip: text, padding-box !important;
+  -webkit-text-fill-color: transparent !important;
   color: var(--vert-fonce) !important;
   padding: 0.48rem 1.1rem;
   border-radius: var(--radius-pill);
   font-weight: 700 !important;
   letter-spacing: 0 !important;
+  transition: background-position 0.5s ease !important;
+}
+.nav__cta:hover {
+  background-position: 0% 0, 0 0 !important;
 }
 
 /* Burger mobile */
