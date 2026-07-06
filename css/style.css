@@ -98,6 +98,11 @@ a  { color: inherit; }
 }
 
 /* ── BOUTONS ── */
+@keyframes shine-sweep {
+  from { left: -80%; }
+  to   { left: 110%; }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -116,10 +121,23 @@ a  { color: inherit; }
 .btn:active { transform: scale(0.98); }
 
 .btn--primary {
+  position: relative;
+  overflow: hidden;
   background: var(--vert-fonce);
   color: var(--blanc);
   box-shadow: 0 4px 16px rgba(45,90,39,0.25);
 }
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -80%;
+  width: 55%;
+  background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.22) 50%, transparent 100%);
+  transform: skewX(-12deg);
+  pointer-events: none;
+}
+.btn--primary:hover::before { animation: shine-sweep 0.52s ease forwards; }
 .btn--primary:hover { box-shadow: 0 8px 24px rgba(45,90,39,0.35); text-shadow: 0 0 14px rgba(255,255,255,0.7), 0 0 28px rgba(200,230,195,0.45); }
 
 
@@ -131,12 +149,25 @@ a  { color: inherit; }
 .btn--outline:hover { background: var(--vert-xlight); }
 
 .btn--rdv {
+  position: relative;
+  overflow: hidden;
   background: var(--vert-clair);
   color: var(--vert-fonce);
   font-size: 1rem;
   padding: 1rem 2.5rem;
   box-shadow: 0 4px 20px rgba(123,198,122,0.35);
 }
+.btn--rdv::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -80%;
+  width: 55%;
+  background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
+  transform: skewX(-12deg);
+  pointer-events: none;
+}
+.btn--rdv:hover::before { animation: shine-sweep 0.52s ease forwards; }
 .btn--rdv:hover { box-shadow: 0 8px 32px rgba(123,198,122,0.5); color: var(--blanc); text-shadow: 0 0 14px rgba(255,255,255,0.65); }
 
 .contact__vitrine-frame {
@@ -208,6 +239,8 @@ a  { color: inherit; }
 }
 .nav__links a:hover { color: var(--vert-clair); }
 .nav__cta {
+  position: relative;
+  overflow: hidden;
   background: var(--vert-clair) !important;
   color: var(--vert-fonce) !important;
   padding: 0.48rem 1.1rem;
@@ -216,6 +249,17 @@ a  { color: inherit; }
   letter-spacing: 0 !important;
   transition: color var(--transition), text-shadow var(--transition) !important;
 }
+.nav__cta::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -80%;
+  width: 55%;
+  background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
+  transform: skewX(-12deg);
+  pointer-events: none;
+}
+.nav__cta:hover::before { animation: shine-sweep 0.48s ease forwards; }
 .nav__cta:hover {
   color: var(--blanc) !important;
   text-shadow: 0 0 12px rgba(255,255,255,0.6) !important;
