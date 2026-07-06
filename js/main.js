@@ -198,33 +198,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  /* ── CAROUSEL GALERIE ── */
-  const carouselEl = document.querySelector('.carousel');
-  if (carouselEl) {
-    carouselEl.querySelectorAll('[data-mobile-hidden]').forEach(el => el.remove());
-    const track   = carouselEl.querySelector('.carousel__track');
-    const slides  = carouselEl.querySelectorAll('.carousel__slide');
-    const btnPrev = carouselEl.querySelector('.carousel__btn--prev');
-    const btnNext = carouselEl.querySelector('.carousel__btn--next');
-    const dotsEl  = carouselEl.querySelector('.carousel__dots');
-    const total   = slides.length;
+  /* ── CAROUSEL (générique) ── */
+  function makeCarousel(el, { trackSel, itemSel, dotClass, ariaLabel, interval, onBeforeSlide }) {
+    const track   = el.querySelector(trackSel);
+    const items   = Array.from(el.querySelectorAll(itemSel));
+    const btnPrev = el.querySelector('[class*="btn--prev"]');
+    const btnNext = el.querySelector('[class*="btn--next"]');
+    const dotsEl  = el.querySelector('[class*="dots"]');
+    const total   = items.length;
     let current   = 0;
     let autoTimer;
 
-    // Build dots
-    slides.forEach((_, i) => {
+    items.forEach((_, i) => {
       const dot = document.createElement('button');
-      dot.className = 'carousel__dot' + (i === 0 ? ' active' : '');
+      dot.className = dotClass + (i === 0 ? ' active' : '');
       dot.setAttribute('role', 'tab');
-      dot.setAttribute('aria-label', 'Transformation ' + (i + 1));
+      dot.setAttribute('aria-label', ariaLabel + (i + 1));
       dot.addEventListener('click', () => goTo(i));
       dotsEl.appendChild(dot);
     });
 
     function goTo(idx) {
+      if (onBeforeSlide) onBeforeSlide(current, items);
       current = (idx + total) % total;
       track.style.transform = 'translateX(-' + current * 100 + '%)';
-      dotsEl.querySelectorAll('.carousel__dot').forEach((d, i) => {
+      dotsEl.querySelectorAll('.' + dotClass).forEach((d, i) => {
         d.classList.toggle('active', i === current);
       });
       resetAuto();
@@ -232,73 +230,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resetAuto() {
       clearInterval(autoTimer);
-      autoTimer = setInterval(() => goTo(current + 1), 5000);
+      autoTimer = setInterval(() => goTo(current + 1), interval);
     }
 
     btnPrev.addEventListener('click', () => goTo(current - 1));
     btnNext.addEventListener('click', () => goTo(current + 1));
 
-    // Keyboard
-    carouselEl.addEventListener('keydown', e => {
+    el.addEventListener('keydown', e => {
       if (e.key === 'ArrowLeft')  goTo(current - 1);
       if (e.key === 'ArrowRight') goTo(current + 1);
     });
 
-    // Touch swipe
     let touchX = 0;
-    carouselEl.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
-    carouselEl.addEventListener('touchend',   e => {
+    el.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    el.addEventListener('touchend',   e => {
       const dx = e.changedTouches[0].clientX - touchX;
       if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
     }, { passive: true });
 
-    // Pause on hover
-    carouselEl.addEventListener('mouseenter', () => clearInterval(autoTimer));
-    carouselEl.addEventListener('mouseleave', resetAuto);
+    el.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    el.addEventListener('mouseleave', resetAuto);
 
     resetAuto();
+  }
+
+  /* ── CAROUSEL GALERIE ── */
+  const carouselEl = document.querySelector('.carousel');
+  if (carouselEl) {
+    carouselEl.querySelectorAll('[data-mobile-hidden]').forEach(el => el.remove());
+    makeCarousel(carouselEl, {
+      trackSel:  '.carousel__track',
+      itemSel:   '.carousel__slide',
+      dotClass:  'carousel__dot',
+      ariaLabel: 'Transformation ',
+      interval:  5000
+    });
   }
 
   /* ── CAROUSEL CONSEILS (flashcards) ── */
   const conseilsEl = document.querySelector('.conseils__carousel');
   if (conseilsEl) {
-    const cTrack    = conseilsEl.querySelector('.conseils__track');
-    const cCards    = conseilsEl.querySelectorAll('.conseil-card');
-    const cBtnPrev  = conseilsEl.querySelector('.conseils__btn--prev');
-    const cBtnNext  = conseilsEl.querySelector('.conseils__btn--next');
-    const cDotsEl   = conseilsEl.querySelector('.conseils__dots');
-    const cTotal    = cCards.length;
-    let cCurrent    = 0;
-    let cAutoTimer;
+    const cCards = Array.from(conseilsEl.querySelectorAll('.conseil-card'));
 
-    cCards.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className = 'conseils__dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('role', 'tab');
-      dot.setAttribute('aria-label', 'Conseil ' + (i + 1));
-      dot.addEventListener('click', () => cGoTo(i));
-      cDotsEl.appendChild(dot);
+    makeCarousel(conseilsEl, {
+      trackSel:      '.conseils__track',
+      itemSel:       '.conseil-card',
+      dotClass:      'conseils__dot',
+      ariaLabel:     'Conseil ',
+      interval:      6000,
+      onBeforeSlide: (current) => {
+        cCards[current].classList.remove('is-flipped');
+        cCards[current].style.height = '';
+      }
     });
-
-    function cGoTo(idx) {
-      const prev = cCards[cCurrent];
-      prev.classList.remove('is-flipped');
-      prev.style.height = '';
-      cCurrent = (idx + cTotal) % cTotal;
-      cTrack.style.transform = 'translateX(-' + cCurrent * 100 + '%)';
-      cDotsEl.querySelectorAll('.conseils__dot').forEach((d, i) => {
-        d.classList.toggle('active', i === cCurrent);
-      });
-      cResetAuto();
-    }
-
-    function cResetAuto() {
-      clearInterval(cAutoTimer);
-      cAutoTimer = setInterval(() => cGoTo(cCurrent + 1), 6000);
-    }
-
-    cBtnPrev.addEventListener('click', () => cGoTo(cCurrent - 1));
-    cBtnNext.addEventListener('click', () => cGoTo(cCurrent + 1));
 
     cCards.forEach(card => {
       const backImg = card.querySelector('.conseil-card__back img');
@@ -322,22 +306,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
-
-    let cTouchX = 0;
-    conseilsEl.addEventListener('touchstart', e => { cTouchX = e.touches[0].clientX; }, { passive: true });
-    conseilsEl.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - cTouchX;
-      if (Math.abs(dx) > 40) cGoTo(cCurrent + (dx < 0 ? 1 : -1));
-    }, { passive: true });
-
-    conseilsEl.addEventListener('mouseenter', () => clearInterval(cAutoTimer));
-    conseilsEl.addEventListener('mouseleave', cResetAuto);
-    conseilsEl.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft')  cGoTo(cCurrent - 1);
-      if (e.key === 'ArrowRight') cGoTo(cCurrent + 1);
-    });
-
-    cResetAuto();
   }
 
 });

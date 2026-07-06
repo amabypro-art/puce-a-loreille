@@ -41,6 +41,9 @@ body {
 }
 img { max-width: 100%; display: block; }
 a  { color: inherit; }
+.btn, .nav__logo, .nav__links a,
+.stars-bar__link, .contact__card-value,
+.social-btn, .footer__links a { text-decoration: none; }
 
 /* Cruelty-Free tag */
 .tag--cruelty {
@@ -107,7 +110,6 @@ a  { color: inherit; }
   font-family: var(--font-sans);
   font-size: 0.9rem;
   font-weight: 700;
-  text-decoration: none;
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
   cursor: pointer;
   border: none;
@@ -186,7 +188,6 @@ a  { color: inherit; }
   display: flex;
   align-items: center;
   gap: 10px;
-  text-decoration: none;
 }
 .nav__patte { font-size: 26px; filter: brightness(0) invert(1); }
 .nav__title {
@@ -208,7 +209,6 @@ a  { color: inherit; }
 }
 .nav__links a {
   color: var(--blanc);
-  text-decoration: none;
   font-family: var(--font-sans);
   font-size: 0.85rem;
   letter-spacing: 0.04em;
@@ -379,7 +379,6 @@ a  { color: inherit; }
   align-items: center;
   gap: 0.3rem;
   color: inherit;
-  text-decoration: none;
   transition: opacity 0.2s;
 }
 .stars-bar__link:hover { opacity: 0.75; }
@@ -1061,7 +1060,6 @@ a  { color: inherit; }
   font-weight: 700;
   font-size: 0.92rem;
   color: var(--blanc);
-  text-decoration: none;
   transition: color var(--transition);
 }
 .contact__card-value:hover { color: var(--vert-clair); }
@@ -1076,7 +1074,6 @@ a  { color: inherit; }
   font-family: var(--font-sans);
   font-size: 0.8rem;
   font-weight: 700;
-  text-decoration: none;
   transition: opacity 0.2s, transform 0.2s;
 }
 .social-btn:hover { opacity: 0.85; transform: translateY(-1px); }
@@ -1117,7 +1114,6 @@ a  { color: inherit; }
 }
 .footer__links a {
   color: rgba(255,255,255,0.45);
-  text-decoration: none;
   transition: color var(--transition);
 }
 .footer__links a:hover { color: var(--vert-clair); }
@@ -1186,6 +1182,31 @@ a  { color: inherit; }
 /* ══════════════════════════════════════════
    RESPONSIVE
    ══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .section { padding: 5rem 2.5rem; }
+
+  /* Services : 3 colonnes au lieu de 6 */
+  .services-grid { grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
+  .service-card:nth-child(1),
+  .service-card:nth-child(2),
+  .service-card:nth-child(3) { grid-column: span 1; }
+  .service-card:nth-child(4) { grid-column: span 1; }
+  .service-card:nth-child(5) { grid-column: span 2; }
+  .service-card:nth-child(4) .service-card__img,
+  .service-card:nth-child(5) .service-card__img { aspect-ratio: 4/3; }
+
+  /* Hero : ajustements pour tablette */
+  .hero__title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+  .hero__illustration { width: min(520px, 50vw); }
+  .hero__illustration--right { width: min(320px, 36vw); }
+
+  /* Conseils : réduire les cartes */
+  .conseils__carousel { max-width: 680px; }
+
+  /* À-propos : réduire l'espace */
+  .about__inner { gap: 3rem; }
+}
+
 @media (max-width: 768px) {
   .nav__links {
     display: none;
