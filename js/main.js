@@ -267,45 +267,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ── CAROUSEL CONSEILS (flashcards) ── */
-  const conseilsEl = document.querySelector('.conseils__carousel');
-  if (conseilsEl) {
-    const cCards = Array.from(conseilsEl.querySelectorAll('.conseil-card'));
-
-    makeCarousel(conseilsEl, {
-      trackSel:      '.conseils__track',
-      itemSel:       '.conseil-card',
-      dotClass:      'conseils__dot',
-      ariaLabel:     'Conseil ',
-      interval:      6000,
-      onBeforeSlide: (current) => {
-        cCards[current].classList.remove('is-flipped');
-        cCards[current].style.height = '';
-      }
+  /* ── CONSEILS GRILLE ── */
+  document.querySelectorAll('.conseil-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const img   = btn.querySelector('img');
+      const title = btn.querySelector('.conseil-item__title').textContent.trim();
+      openLightbox(img.src, title);
     });
-
-    cCards.forEach(card => {
-      const backImg = card.querySelector('.conseil-card__back img');
-
-      function flipOpen() {
-        if (backImg.naturalWidth > 0) {
-          const ratio = backImg.naturalHeight / backImg.naturalWidth;
-          card.style.height = Math.round(card.offsetWidth * ratio) + 'px';
-        }
-        card.classList.add('is-flipped');
-      }
-
-      card.addEventListener('click', () => {
-        if (card.classList.contains('is-flipped')) {
-          openLightbox(backImg.src, card.querySelector('.conseil-card__back-overlay').textContent.trim());
-        } else if (backImg.complete && backImg.naturalWidth > 0) {
-          flipOpen();
-        } else {
-          backImg.addEventListener('load', flipOpen, { once: true });
-          card.classList.add('is-flipped');
-        }
-      });
-    });
-  }
+  });
 
 });
