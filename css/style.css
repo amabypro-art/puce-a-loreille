@@ -141,7 +141,7 @@ a  { color: inherit; }
   font-size: 1rem;
   padding: 1rem 2.5rem;
   box-shadow: 0 4px 20px rgba(123,198,122,0.35);
-  transition: transform var(--transition), box-shadow var(--transition), background-position 0.55s ease;
+  transition: transform var(--transition), box-shadow var(--transition), background-position 0.8s ease;
 }
 .btn--rdv:hover {
   background-position: 0% 0, 0 0;
@@ -229,7 +229,7 @@ a  { color: inherit; }
   border-radius: var(--radius-pill);
   font-weight: 700 !important;
   letter-spacing: 0 !important;
-  transition: background-position 0.5s ease !important;
+  transition: background-position 0.8s ease !important;
 }
 .nav__cta:hover {
   background-position: 0% 0, 0 0 !important;
