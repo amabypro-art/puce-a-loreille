@@ -263,8 +263,8 @@ a  { color: inherit; }
    HERO
    ══════════════════════════════════════════ */
 .hero {
-  background: url('../images/hero-bg-tropical.webp') center / cover no-repeat;
-  background: image-set(url('../images/hero-bg-tropical.webp') type('image/webp'), url('../images/hero-bg-tropical.png') type('image/png')) center / cover no-repeat;
+  background: url('../images/hero-bg-tropical.webp?v=2') center / cover no-repeat;
+  background: image-set(url('../images/hero-bg-tropical.webp?v=2') type('image/webp'), url('../images/hero-bg-tropical.png') type('image/png')) center / cover no-repeat;
   min-height: 88vh;
   display: flex;
   align-items: center;
@@ -1163,7 +1163,7 @@ a  { color: inherit; }
     min-height: 78vh;
     background:
       linear-gradient(to bottom, #fff 0%, #fff 38%, rgba(255,255,255,0) 50%),
-      url('../images/hero-bg-tropical.webp') bottom center / cover no-repeat;
+      url('../images/hero-bg-tropical.webp?v=2') bottom center / cover no-repeat;
   }
   .hero__actions { transform: translateX(-1cm); }
   .hero__illustration {
