@@ -335,6 +335,19 @@ a  { color: inherit; }
   height: auto;
   display: block;
 }
+.hero__products {
+  margin-top: 2cm;
+  width: min(180px, 22vw);
+  margin-left: auto;
+  margin-right: auto;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.12));
+}
+.hero__products img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 @keyframes slideLeftToRight {
   from { transform: translateX(-120vw); opacity: 0; }
   to   { transform: translateX(0);      opacity: 1; }
