@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   lightbox.className = 'lightbox';
   lightbox.setAttribute('role', 'dialog');
   lightbox.setAttribute('aria-modal', 'true');
+  lightbox.setAttribute('aria-label', 'Image agrandie');
   lightbox.innerHTML =
     '<div class="lightbox__inner">' +
       '<button class="lightbox__close" aria-label="Fermer">✕</button>' +
