@@ -341,7 +341,7 @@ a  { color: inherit; }
   left: 50%;
   transform: translateX(-50%);
   margin-top: 2cm;
-  width: min(216px, 26.4vw);
+  width: min(259px, 31.7vw);
   pointer-events: none;
   filter: drop-shadow(0 8px 32px rgba(0,0,0,0.12));
 }
