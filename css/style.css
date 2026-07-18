@@ -829,6 +829,10 @@ a  { color: inherit; }
   height: auto;
   display: block;
   border-radius: var(--radius-md);
+  transition: transform 0.4s ease;
+}
+.carousel__photo:hover img {
+  transform: scale(1.08);
 }
 .carousel__slide--vertical .carousel__photo {
   background: #f0f0ec;
