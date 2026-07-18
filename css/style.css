@@ -312,7 +312,7 @@ a  { color: inherit; }
   line-height: 1.7;
   margin-bottom: 2.5rem;
 }
-.hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.hero__actions { position: relative; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 .hero__illustration {
   position: absolute;
   left: clamp(60px, 18vw, 260px);
@@ -336,10 +336,12 @@ a  { color: inherit; }
   display: block;
 }
 .hero__products {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   margin-top: 2cm;
-  width: min(180px, 22vw);
-  margin-left: auto;
-  margin-right: auto;
+  width: min(270px, 33vw);
   pointer-events: none;
   filter: drop-shadow(0 8px 32px rgba(0,0,0,0.12));
 }
@@ -800,7 +802,7 @@ a  { color: inherit; }
 }
 .galerie .section__header {
   padding: 0 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4.5rem;
   text-align: center;
 }
 .galerie .section__header h2 { color: var(--texte); }
@@ -814,8 +816,8 @@ a  { color: inherit; }
   padding: 0 0 4rem;
 }
 .carousel__viewport {
-  overflow: hidden;
-  border-radius: var(--radius-md);
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 .carousel__track {
   display: flex;
@@ -824,7 +826,7 @@ a  { color: inherit; }
 }
 .carousel__slide {
   min-width: 100%;
-  padding: 0 1rem;
+  padding: 2rem 2.5rem;
 }
 .carousel__pair {
   display: flex;
