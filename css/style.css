@@ -823,16 +823,18 @@ a  { color: inherit; }
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
+  transition: transform 0.4s ease;
+  will-change: transform;
 }
 .carousel__photo img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: var(--radius-md);
-  transition: transform 0.4s ease;
 }
-.carousel__pair:hover .carousel__photo img {
+.carousel__photo:hover {
   transform: scale(1.08);
+  z-index: 2;
 }
 .carousel__slide--vertical .carousel__photo {
   background: #f0f0ec;
