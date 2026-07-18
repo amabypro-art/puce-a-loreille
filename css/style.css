@@ -831,7 +831,7 @@ a  { color: inherit; }
   border-radius: var(--radius-md);
   transition: transform 0.4s ease;
 }
-.carousel__photo:hover img {
+.carousel__pair:hover .carousel__photo img {
   transform: scale(1.08);
 }
 .carousel__slide--vertical .carousel__photo {
