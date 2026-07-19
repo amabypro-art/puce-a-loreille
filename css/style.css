@@ -1142,6 +1142,12 @@ a  { color: inherit; }
 /* ══════════════════════════════════════════
    RESPONSIVE
    ══════════════════════════════════════════ */
+@media (max-width: 1280px) {
+  /* Petit desktop / grand laptop : illustrations plus petites et poussées vers les bords pour ne plus chevaucher le texte central */
+  .hero__illustration { left: 20px; width: min(300px, 26vw); }
+  .hero__illustration--right { left: auto; right: 20px; width: min(260px, 24vw); }
+}
+
 @media (max-width: 1024px) {
   .section { padding: 5rem 2.5rem; }
 
@@ -1155,10 +1161,11 @@ a  { color: inherit; }
   .service-card:nth-child(4) .service-card__img,
   .service-card:nth-child(5) .service-card__img { aspect-ratio: 4/3; }
 
-  /* Hero : ajustements pour tablette */
+  /* Hero : ajustements pour tablette — illustrations plus petites et repoussées vers les bords pour ne plus chevaucher le texte central */
   .hero__title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
-  .hero__illustration { width: min(520px, 50vw); }
-  .hero__illustration--right { width: min(320px, 36vw); }
+  .hero__illustration { left: clamp(0px, 4vw, 40px); width: min(260px, 30vw); bottom: -10px; }
+  .hero__illustration--right { right: clamp(0px, 4vw, 40px); width: min(230px, 26vw); bottom: 130px; }
+  .hero__products { margin-top: 0.3cm; }
 
   /* Conseils : grille 2 colonnes */
   .conseils-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
@@ -1167,7 +1174,7 @@ a  { color: inherit; }
   .about__inner { gap: 3rem; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .nav__links {
     display: none;
     flex-direction: column;
@@ -1183,7 +1190,9 @@ a  { color: inherit; }
   .nav__burger { display: flex; grid-column: 2; }
   .nav { grid-template-columns: auto 1fr; padding: 0.9rem 1.2rem; }
   .nav__title { white-space: nowrap; }
+}
 
+@media (max-width: 768px) {
   .hero {
     padding: 4rem 1.5rem 8rem;
     min-height: 78vh;
