@@ -1295,9 +1295,11 @@ a  { color: inherit; }
 @media (max-width: 480px) {
   .section { padding: 3.5rem 1.2rem; }
 
-  /* Services → 1 colonne */
-  .services-grid { grid-template-columns: 1fr; }
-  .service-card:nth-child(n) { grid-column: span 1 !important; }
+  /* Services → 2 colonnes compactes */
+  .services-grid { gap: 1.1rem; }
+  .service-card h3 { font-size: 0.76rem; }
+  .service-card p { font-size: 0.72rem; }
+  .service-card__prix { font-size: 0.74rem; padding: 0.24rem 0.85rem; }
 
   .carousel__pair { gap: 2rem; }
   .carousel__btn { width: 44px; height: 44px; font-size: 1.4rem; }
