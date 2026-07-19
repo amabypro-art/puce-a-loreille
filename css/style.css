@@ -1146,6 +1146,9 @@ a  { color: inherit; }
   /* Petit desktop / grand laptop : illustrations plus petites et poussées vers les bords pour ne plus chevaucher le texte central */
   .hero__illustration { left: 20px; width: min(300px, 26vw); }
   .hero__illustration--right { left: auto; right: 20px; width: min(260px, 24vw); }
+  /* Texte hero : tailles fixes au lieu de clamp()/vw fluides, pour un rendu prévisible sur toute la tranche 1025-1280px */
+  .hero__title { font-size: 2.4rem; }
+  .hero__content { max-width: 540px; }
 }
 
 @media (max-width: 1024px) {
@@ -1162,7 +1165,8 @@ a  { color: inherit; }
   .service-card:nth-child(5) .service-card__img { aspect-ratio: 4/3; }
 
   /* Hero : ajustements pour tablette — illustrations plus petites et repoussées vers les bords pour ne plus chevaucher le texte central */
-  .hero__title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+  .hero__title { font-size: 2rem; }
+  .hero__content { max-width: 440px; }
   .hero__illustration { left: clamp(0px, 4vw, 40px); width: min(260px, 30vw); bottom: -10px; }
   .hero__illustration--right { right: clamp(0px, 4vw, 40px); width: min(230px, 26vw); bottom: 130px; }
   .hero__products { margin-top: 0.3cm; }
@@ -1192,29 +1196,28 @@ a  { color: inherit; }
   .nav__title { white-space: nowrap; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .hero {
-    padding: 4rem 1.5rem 8rem;
+    align-items: flex-start;
+    padding: 2.5rem 1.5rem 8rem;
     min-height: 78vh;
     background:
       linear-gradient(to bottom, #fff 0%, #fff 38%, rgba(255,255,255,0) 50%),
       url('../images/hero-bg-tropical.webp?v=2') bottom center / cover no-repeat;
   }
-  .hero__actions { transform: translateX(-1cm); }
   .hero__illustration {
-    width: min(630px, 58vw);
+    width: min(230px, 46vw);
     bottom: -10px;
     left: 0;
   }
   .hero__illustration--right {
     left: auto;
-    right: -0.5cm;
+    right: -0.3cm;
     bottom: clamp(80px, 20vh, 160px);
-    width: min(380px, 42vw);
+    width: min(190px, 34vw);
   }
   .hero__content { max-width: 100%; margin-top: 0; margin-bottom: 1.5rem; }
-  .hero__title { font-size: 1.8rem; white-space: normal; margin-top: -2.5cm; }
-  .hero__actions { margin-top: 2.5cm; }
+  .hero__title { font-size: 1.8rem; white-space: normal; }
   .hero__products { display: none; }
 
   .hero__mobile-flowers {
