@@ -1247,7 +1247,7 @@ a  { color: inherit; }
   .service-card:nth-child(5) p { font-size: 0.83rem; }
 
   /* Carousel mobile — avant en haut, après en bas */
-  .carousel__pair { flex-direction: column; align-items: stretch; }
+  .carousel__pair { flex-direction: column; align-items: stretch; gap: 2.5rem; }
   .carousel__arrow { display: none; }
   .carousel__btn--prev { left: 4px; }
   .carousel__btn--next { right: 4px; }
@@ -1299,7 +1299,7 @@ a  { color: inherit; }
   .services-grid { grid-template-columns: 1fr; }
   .service-card:nth-child(n) { grid-column: span 1 !important; }
 
-  .carousel__pair { gap: 0.5rem; }
+  .carousel__pair { gap: 2rem; }
   .carousel__btn { width: 44px; height: 44px; font-size: 1.4rem; }
 
   .contact__vitrine-frame { max-width: 280px; }
