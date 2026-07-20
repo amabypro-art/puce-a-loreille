@@ -1159,7 +1159,7 @@ a  { color: inherit; }
   .hero__title { font-size: 2rem; }
   .hero__content { max-width: 440px; }
   .hero__illustration { left: clamp(0px, 4vw, 40px); width: min(260px, 30vw); bottom: -10px; }
-  .hero__illustration--right { right: clamp(0px, 4vw, 40px); width: min(230px, 26vw); bottom: 130px; }
+  .hero__illustration--right { left: auto; right: clamp(0px, 4vw, 40px); width: min(230px, 26vw); bottom: 130px; }
   .hero__products { margin-top: 0.3cm; }
 
   /* Conseils : grille 2 colonnes */
@@ -1167,6 +1167,20 @@ a  { color: inherit; }
 
   /* À-propos : réduire l'espace */
   .about__inner { gap: 3rem; }
+}
+
+/* Hero — réglages fins ~820px large (ex. 820x1170) */
+@media (min-width: 768px) and (max-width: 858px) {
+  .hero { background-position: center top; }
+  .hero__illustration { bottom: calc(-10px + 3cm); }
+  .hero__illustration--right { bottom: calc(130px + 3cm); right: calc(clamp(0px, 4vw, 40px) - 5cm); }
+}
+
+/* Hero — réglages fins ~897px large (ex. 897x1040) */
+@media (min-width: 859px) and (max-width: 1024px) {
+  .hero__content { margin-top: calc(2.5rem + 1cm + 0.5cm); margin-bottom: calc(6.95rem - 1cm - 0.5cm); }
+  .hero__illustration { bottom: calc(-10px + 2.5cm); }
+  .hero__illustration--right { bottom: calc(130px + 2cm); right: calc(clamp(0px, 4vw, 40px) - 6cm); }
 }
 
 @media (max-width: 900px) {
