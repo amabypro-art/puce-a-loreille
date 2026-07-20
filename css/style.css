@@ -1206,9 +1206,7 @@ a  { color: inherit; }
     align-items: flex-start;
     padding: 2.5rem 1.5rem 8rem;
     min-height: 78vh;
-    background:
-      linear-gradient(to bottom, #fff 0%, #fff 38%, rgba(255,255,255,0) 50%),
-      url('../images/hero-bg-tropical.webp?v=2') bottom center / cover no-repeat;
+    background: url('../images/hero-bg-tropical.webp?v=2') bottom center / auto 170% no-repeat;
   }
   .hero__illustration {
     width: min(230px, 46vw);
