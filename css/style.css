@@ -1171,13 +1171,14 @@ a  { color: inherit; }
 
 /* Hero — réglages fins ~820px large (ex. 820x1170) */
 @media (min-width: 768px) and (max-width: 858px) {
-  .hero { background-position: center top; }
+  .hero { background: url('../images/hero-bg-tropical.webp?v=2') bottom center / auto 170% no-repeat; }
   .hero__illustration { bottom: 0; }
   .hero__illustration--right { bottom: calc(130px + 5cm); right: calc(clamp(0px, 4vw, 40px) - 1cm); }
 }
 
 /* Hero — réglages fins ~897px large (ex. 897x1040) */
 @media (min-width: 859px) and (max-width: 1024px) {
+  .hero { background: url('../images/hero-bg-tropical.webp?v=2') bottom center / auto 170% no-repeat; }
   .hero__content { margin-top: calc(2.5rem + 1cm + 0.5cm); margin-bottom: calc(6.95rem - 1cm - 0.5cm); }
   .hero__illustration { bottom: 0; }
   .hero__illustration--right { bottom: calc(130px + 4cm); right: calc(clamp(0px, 4vw, 40px) - 2cm); }
@@ -1206,7 +1207,7 @@ a  { color: inherit; }
     align-items: flex-start;
     padding: 2.5rem 1.5rem 8rem;
     min-height: 78vh;
-    background: url('../images/hero-bg-tropical.webp?v=2') bottom center / auto 170% no-repeat;
+    background: url('../images/hero-bg-tropical.webp?v=2') bottom center / auto 150% no-repeat;
   }
   .hero__content { max-width: 100%; margin-top: 0; margin-bottom: 1.5rem; }
   .hero__title { font-size: 1.8rem; white-space: normal; }
