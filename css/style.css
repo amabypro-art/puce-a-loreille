@@ -318,7 +318,7 @@ a  { color: inherit; }
   position: absolute;
   left: 20px;
   bottom: -30px;
-  width: min(300px, 26vw);
+  width: min(300px, 18vw);
   pointer-events: none;
   filter: drop-shadow(0 8px 32px rgba(0,0,0,0.12));
   animation: slideLeftToRight 1s cubic-bezier(0.34, 1.2, 0.64, 1) 0.3s both;
@@ -326,9 +326,9 @@ a  { color: inherit; }
 }
 .hero__illustration--right {
   left: auto;
-  right: calc(20px + 5cm);
+  right: clamp(16px, calc(35vw - 344px), calc(20px + 5cm));
   bottom: calc(150px + 2cm);
-  width: min(260px, 24vw);
+  width: min(260px, 18vw);
   animation: slideRightToLeft 1s cubic-bezier(0.34, 1.2, 0.64, 1) 0.5s both;
 }
 .hero__illustration img {
@@ -355,7 +355,6 @@ a  { color: inherit; }
   from { transform: translateX(-120vw); opacity: 0; }
   to   { transform: translateX(0);      opacity: 1; }
 }
-.hero__mobile-flowers { display: none; }
 @keyframes slideRightToLeft {
   from { transform: translateX(120vw);  opacity: 0; }
   to   { transform: translateX(0);      opacity: 1; }
@@ -1155,33 +1154,27 @@ a  { color: inherit; }
   .service-card:nth-child(4) .service-card__img,
   .service-card:nth-child(5) .service-card__img { aspect-ratio: 4/3; }
 
-  /* Hero : ajustements pour tablette — illustrations plus petites et repoussées vers les bords pour ne plus chevaucher le texte central */
+  /* Hero (tablette + mobile) : bandeau tropical recadre (sans desert) en pleine
+     largeur, chat/carlin ancres en % de la hauteur du bandeau (hero__stage),
+     pas de valeurs pixel/cm par taille exacte de fenetre. */
+  .hero { display: block; background: #fff3d9; padding: 0 0 180px; min-height: 0; }
   .hero__title { font-size: 2rem; }
-  .hero__content { max-width: 440px; }
-  .hero__illustration { left: clamp(0px, 4vw, 40px); width: min(260px, 30vw); bottom: -10px; }
-  .hero__illustration--right { left: auto; right: clamp(0px, 4vw, 40px); width: min(230px, 26vw); bottom: 130px; }
-  .hero__products { margin-top: 0.3cm; }
+  .hero__content { max-width: 440px; margin: 2rem auto 1.5rem; }
+  .hero__stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1600 / 575;
+    background: url('../images/hero-bg-tropical-compact.webp?v=1') top center / 100% auto no-repeat;
+  }
+  .hero__illustration { left: 4%; width: min(230px, 32vw); bottom: 0; }
+  .hero__illustration--right { left: auto; right: 4%; width: min(210px, 28vw); bottom: 42%; }
+  .hero__products { margin-top: 0.3cm; width: min(180px, 26vw); }
 
   /* Conseils : grille 2 colonnes */
   .conseils-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
 
   /* À-propos : réduire l'espace */
   .about__inner { gap: 3rem; }
-}
-
-/* Hero — réglages fins ~820px large (ex. 820x1170) */
-@media (min-width: 768px) and (max-width: 858px) {
-  .hero { background: url('../images/hero-bg-tropical.webp?v=2') bottom center / auto 170% no-repeat; }
-  .hero__illustration { bottom: 0; }
-  .hero__illustration--right { bottom: calc(130px + 5cm); right: calc(clamp(0px, 4vw, 40px) - 1cm); }
-}
-
-/* Hero — réglages fins ~897px large (ex. 897x1040) */
-@media (min-width: 859px) and (max-width: 1024px) {
-  .hero { background: url('../images/hero-bg-tropical.webp?v=2') bottom center / auto 170% no-repeat; }
-  .hero__content { margin-top: calc(2.5rem + 1cm + 0.5cm); margin-bottom: calc(6.95rem - 1cm - 0.5cm); }
-  .hero__illustration { bottom: 0; }
-  .hero__illustration--right { bottom: calc(130px + 4cm); right: calc(clamp(0px, 4vw, 40px) - 2cm); }
 }
 
 @media (max-width: 900px) {
@@ -1203,14 +1196,10 @@ a  { color: inherit; }
 }
 
 @media (max-width: 767px) {
-  .hero {
-    align-items: flex-start;
-    padding: 2.5rem 1.5rem 8rem;
-    min-height: 78vh;
-    background: url('../images/hero-bg-tropical.webp?v=2') bottom center / auto 150% no-repeat;
-  }
-  .hero__content { max-width: 100%; margin-top: 0; margin-bottom: 1.5rem; }
+  .hero { padding: 0 1.5rem 3rem; }
+  .hero__content { max-width: 100%; margin: 1.5rem auto 1rem; }
   .hero__title { font-size: 1.8rem; white-space: normal; }
+  .hero__products { display: none; }
 
   .about__inner {
     grid-template-columns: 1fr;
