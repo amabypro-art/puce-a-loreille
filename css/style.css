@@ -32,7 +32,7 @@
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   font-family: var(--font-serif);
   background: var(--creme);
@@ -59,7 +59,7 @@ a  { color: inherit; }
   font-size: 0.72rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--vert-moyen);
+  color: #357a2c;
   margin-bottom: 0.7rem;
   display: block;
 }
@@ -269,10 +269,11 @@ a  { color: inherit; }
    padding-top en pixels fixes calibres sur l'image de ce palier. */
 .hero {
   background: url('../images/hero-desktop.webp') top center / 100% 100% no-repeat;
+  background-color: #fff3d9;
   aspect-ratio: 1559 / 900;
-  min-height: 620px;
   position: relative;
   overflow-x: clip;
+  overflow-y: visible;
 }
 .hero__bg-dots {
   position: absolute;
@@ -301,7 +302,7 @@ a  { color: inherit; }
 }
 .hero__title em {
   font-style: normal;
-  color: var(--vert-clair);
+  color: var(--vert-moyen);
 }
 .hero__sub {
   color: var(--texte-doux);
@@ -759,7 +760,7 @@ a  { color: inherit; }
   text-align: center;
 }
 .galerie .section__header h2 { color: var(--texte); }
-.galerie .eyebrow { color: var(--vert-moyen); }
+.galerie .eyebrow { color: #357a2c; }
 
 /* ── CAROUSEL ── */
 .carousel {
@@ -1115,13 +1116,13 @@ a  { color: inherit; }
 
 /* Hero — image composite dediee (897x675) : fond + chat + carlin deja fusionnes */
 @media (min-width: 859px) and (max-width: 1024px) {
-  .hero { background-image: url('../images/hero-tablet-897.webp'); aspect-ratio: 897 / 675; min-height: 640px; }
+  .hero { background-image: url('../images/hero-tablet-897.webp'); aspect-ratio: 897 / 675; }
   .hero__content { padding-top: 39.58%; }
 }
 
 /* Hero — image composite dediee (820x648) */
 @media (min-width: 768px) and (max-width: 858px) {
-  .hero { background-image: url('../images/hero-tablet-820.webp'); aspect-ratio: 820 / 648; min-height: 615px; }
+  .hero { background-image: url('../images/hero-tablet-820.webp'); aspect-ratio: 820 / 648; }
   .hero__content { padding-top: 39.88%; }
 }
 
@@ -1221,13 +1222,13 @@ a  { color: inherit; }
 
 /* Hero — image composite dediee (430x545) : fond + chat + carlin, pas de produits */
 @media (min-width: 421px) and (max-width: 767px) {
-  .hero { background-image: url('../images/hero-mobile-430.webp'); aspect-ratio: 430 / 545; min-height: 480px; }
+  .hero { background-image: url('../images/hero-mobile-430.webp'); aspect-ratio: 430 / 545; }
   .hero__content { padding-top: 37.67%; }
 }
 
 /* Hero — image composite dediee (393x520) */
 @media (max-width: 420px) {
-  .hero { background-image: url('../images/hero-mobile-393.webp'); aspect-ratio: 393 / 520; min-height: 498px; }
+  .hero { background-image: url('../images/hero-mobile-393.webp'); aspect-ratio: 393 / 520; }
   .hero__content { padding-top: 37.66%; }
 }
 
