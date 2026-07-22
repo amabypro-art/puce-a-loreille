@@ -269,7 +269,8 @@ a  { color: inherit; }
    padding-top en pixels fixes calibres sur l'image de ce palier. */
 .hero {
   background: url('../images/hero-desktop.webp') top center / 100% 100% no-repeat;
-  min-height: 900px;
+  aspect-ratio: 1559 / 900;
+  min-height: 620px;
   position: relative;
   overflow-x: clip;
 }
@@ -289,7 +290,7 @@ a  { color: inherit; }
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  padding-top: 328px;
+  padding-top: 21.04%;
 }
 
 .hero__title {
@@ -1114,14 +1115,14 @@ a  { color: inherit; }
 
 /* Hero — image composite dediee (897x675) : fond + chat + carlin deja fusionnes */
 @media (min-width: 859px) and (max-width: 1024px) {
-  .hero { background-image: url('../images/hero-tablet-897.webp'); min-height: 675px; }
-  .hero__content { padding-top: 355px; }
+  .hero { background-image: url('../images/hero-tablet-897.webp'); aspect-ratio: 897 / 675; min-height: 640px; }
+  .hero__content { padding-top: 39.58%; }
 }
 
 /* Hero — image composite dediee (820x648) */
 @media (min-width: 768px) and (max-width: 858px) {
-  .hero { background-image: url('../images/hero-tablet-820.webp'); min-height: 648px; }
-  .hero__content { padding-top: 327px; }
+  .hero { background-image: url('../images/hero-tablet-820.webp'); aspect-ratio: 820 / 648; min-height: 615px; }
+  .hero__content { padding-top: 39.88%; }
 }
 
 @media (max-width: 900px) {
@@ -1220,14 +1221,14 @@ a  { color: inherit; }
 
 /* Hero — image composite dediee (430x545) : fond + chat + carlin, pas de produits */
 @media (min-width: 421px) and (max-width: 767px) {
-  .hero { background-image: url('../images/hero-mobile-430.webp'); min-height: 545px; }
-  .hero__content { padding-top: 162px; }
+  .hero { background-image: url('../images/hero-mobile-430.webp'); aspect-ratio: 430 / 545; min-height: 480px; }
+  .hero__content { padding-top: 37.67%; }
 }
 
 /* Hero — image composite dediee (393x520) */
 @media (max-width: 420px) {
-  .hero { background-image: url('../images/hero-mobile-393.webp'); min-height: 520px; }
-  .hero__content { padding-top: 148px; }
+  .hero { background-image: url('../images/hero-mobile-393.webp'); aspect-ratio: 393 / 520; min-height: 498px; }
+  .hero__content { padding-top: 37.66%; }
 }
 
 @media (max-width: 480px) {
