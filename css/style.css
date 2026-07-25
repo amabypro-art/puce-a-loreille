@@ -268,7 +268,7 @@ a  { color: inherit; }
    bouton) est la seule chose qui reste en HTML, positionnee par-dessus via
    padding-top en pixels fixes calibres sur l'image de ce palier. */
 .hero {
-  background: url('../images/hero-desktop.webp') top center / 100% 100% no-repeat;
+  background: url('../images/hero-desktop.webp?v=2') top center / 100% 100% no-repeat;
   background-color: #fff3d9;
   aspect-ratio: 1559 / 900;
   position: relative;
@@ -1116,13 +1116,13 @@ a  { color: inherit; }
 
 /* Hero — image composite dediee (897x675) : fond + chat + carlin deja fusionnes */
 @media (min-width: 859px) and (max-width: 1024px) {
-  .hero { background-image: url('../images/hero-tablet-897.webp'); aspect-ratio: 897 / 675; }
+  .hero { background-image: url('../images/hero-tablet-897.webp?v=2'); aspect-ratio: 897 / 675; }
   .hero__content { padding-top: 39.58%; }
 }
 
 /* Hero — image composite dediee (820x648) */
 @media (min-width: 768px) and (max-width: 858px) {
-  .hero { background-image: url('../images/hero-tablet-820.webp'); aspect-ratio: 820 / 648; }
+  .hero { background-image: url('../images/hero-tablet-820.webp?v=2'); aspect-ratio: 820 / 648; }
   .hero__content { padding-top: 39.88%; }
 }
 
@@ -1221,13 +1221,13 @@ a  { color: inherit; }
 
 /* Hero — image composite dediee (430x545) : fond + chat + carlin, pas de produits */
 @media (min-width: 421px) and (max-width: 767px) {
-  .hero { background-image: url('../images/hero-mobile-430.webp'); aspect-ratio: 430 / 545; }
+  .hero { background-image: url('../images/hero-mobile-430.webp?v=2'); aspect-ratio: 430 / 545; }
   .hero__content { padding-top: 37.67%; }
 }
 
 /* Hero — image composite dediee (393x520) */
 @media (max-width: 420px) {
-  .hero { background-image: url('../images/hero-mobile-393.webp'); aspect-ratio: 393 / 520; }
+  .hero { background-image: url('../images/hero-mobile-393.webp?v=2'); aspect-ratio: 393 / 520; }
   .hero__content { padding-top: 37.66%; }
 }
 
