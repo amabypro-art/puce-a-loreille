@@ -1176,11 +1176,16 @@ a  { color: inherit; }
   .service-card:nth-child(3),
   .service-card:nth-child(4) { grid-column: span 1 !important; }
   .service-card:nth-child(5) { grid-column: 1 / span 2 !important; }
+  /* nth-child(4) (SPA) reste une carte normale sur mobile — seule
+     nth-child(5) (Griffes) est en pleine largeur et garde le
+     traitement "carte vedette" hérité du bloc tablette ci-dessus. */
+  .service-card:nth-child(4) .service-card__img { aspect-ratio: 4/3; }
   .service-card:nth-child(5) .service-card__img { aspect-ratio: 1; }
-  .service-card:nth-child(4) h3,
+  .service-card:nth-child(4) h3 { font-size: 0.8rem; }
   .service-card:nth-child(5) h3 { font-size: 0.88rem; }
-  .service-card:nth-child(4) p,
+  .service-card:nth-child(4) p { font-size: 0.76rem; }
   .service-card:nth-child(5) p { font-size: 0.83rem; }
+  .service-card:nth-child(4) .service-card__prix { font-size: 0.78rem; padding: 0.28rem 1rem; }
 
   /* Carousel mobile — avant en haut, après en bas */
   .carousel__pair { flex-direction: column; align-items: stretch; gap: 2.5rem; }
