@@ -1094,15 +1094,17 @@ a  { color: inherit; }
 @media (max-width: 1024px) {
   .section { padding: 5rem 2.5rem; }
 
-  /* Services : 3 colonnes au lieu de 6 */
-  .services-grid { grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
-  .service-card:nth-child(1),
-  .service-card:nth-child(2),
-  .service-card:nth-child(3) { grid-column: span 1; }
-  .service-card:nth-child(4) { grid-column: span 1; }
-  .service-card:nth-child(5) { grid-column: span 2; }
+  /* Services : 3 par ligne, même taille ; la 2e ligne (2 cartes) se centre
+     au lieu de rester collée à gauche d'une 3e colonne vide. */
+  .services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.8rem;
+  }
+  .service-card { flex: 0 1 calc((100% - 3.6rem) / 3); }
   .service-card:nth-child(4) .service-card__img,
-  .service-card:nth-child(5) .service-card__img { aspect-ratio: 4/3; }
+  .service-card:nth-child(5) .service-card__img { aspect-ratio: 1; }
 
   .hero__title { font-size: 2rem; }
   .hero__content { max-width: 440px; }
@@ -1115,6 +1117,10 @@ a  { color: inherit; }
 
   /* Contact : donner un peu plus de place au texte (adresse email) sur tablette */
   .contact__layout { grid-template-columns: 1.05fr 1fr; }
+  /* Le titre suit la largeur de la fenêtre (4.5vw) mais la colonne, elle,
+     ne fait qu'~1/2 de cette largeur en 2 colonnes : sans ça le <br> forcé
+     retombe sur 4 lignes au lieu de 2. */
+  .contact__info h2 { font-size: clamp(1.5rem, 3.4vw, 2.2rem); }
 }
 
 /* Hero — image composite dediee (897x675) : fond + chat + carlin deja fusionnes */
@@ -1163,7 +1169,8 @@ a  { color: inherit; }
   .service-card p { padding: 0 0.8rem; font-size: 0.76rem; }
   .service-card__prix { font-size: 0.78rem; padding: 0.28rem 1rem; }
 
-  .services-grid { grid-template-columns: 1fr 1fr; }
+  .services-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .service-card { flex: none; }
   .service-card:nth-child(1),
   .service-card:nth-child(2),
   .service-card:nth-child(3),
