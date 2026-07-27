@@ -13,12 +13,11 @@ Site statique pour le salon de toilettage canin **La Puce à l'Oreille**
 puce-a-loreille/
   index.html          ← Page unique
   css/
-    style.css         ← Styles principaux
-    animations.css    ← Animations scroll
+    style.css         ← Styles principaux + animations (fade-up, marquee…)
   js/
-    main.js           ← Nav burger + scroll + animations
-  images/
-    .gitkeep          ← Dossier pour les vraies photos
+    main.js           ← Nav burger + scroll + lightbox + carrousel
+  images/             ← Photos et illustrations utilisées par le site
+  source/             ← Calques source des heros (non chargés par le site)
   README.md
 ```
 

@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const img   = btn.querySelector('img');
       const title = btn.querySelector('.conseil-item__title').textContent.trim();
-      openLightbox(img.src, title);
+      openLightbox(img.dataset.full || img.src, title);
     });
   });
 

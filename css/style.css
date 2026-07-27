@@ -268,7 +268,7 @@ a  { color: inherit; }
    bouton) est la seule chose qui reste en HTML, positionnee par-dessus via
    padding-top en pixels fixes calibres sur l'image de ce palier. */
 .hero {
-  background: url('../images/hero-desktop.webp?v=3') top center / 100% 100% no-repeat;
+  background: url('../images/hero-desktop.webp?v=4') top center / 100% 100% no-repeat;
   background-color: #fff3d9;
   aspect-ratio: 1559 / 900;
   position: relative;
@@ -1167,8 +1167,7 @@ a  { color: inherit; }
   .service-card:nth-child(1),
   .service-card:nth-child(2),
   .service-card:nth-child(3),
-  .service-card:nth-child(4),
-  .service-card:nth-child(5) { grid-column: span 1 !important; }
+  .service-card:nth-child(4) { grid-column: span 1 !important; }
   .service-card:nth-child(5) { grid-column: 1 / span 2 !important; }
   .service-card:nth-child(4) .service-card__img,
   .service-card:nth-child(5) .service-card__img { aspect-ratio: 1; }
@@ -1266,6 +1265,12 @@ a  { color: inherit; }
   opacity: 1;
   transform: translateY(0);
 }
+.about__text.fade-up { --delay: 100ms; }
+.services-grid .service-card:nth-child(1) { --delay: 0ms; }
+.services-grid .service-card:nth-child(2) { --delay: 80ms; }
+.services-grid .service-card:nth-child(3) { --delay: 160ms; }
+.services-grid .service-card:nth-child(4) { --delay: 240ms; }
+.services-grid .service-card:nth-child(5) { --delay: 320ms; }
 
 /* ── NAV scrollée ── */
 .nav--scrolled {
