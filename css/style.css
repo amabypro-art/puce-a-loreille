@@ -63,7 +63,7 @@ a  { color: inherit; }
   margin-bottom: 0.7rem;
   display: block;
 }
-.eyebrow--light { color: rgba(255,255,255,0.6); }
+.eyebrow--light { color: rgba(255,255,255,0.78); }
 
 .section__header {
   text-align: center;
@@ -126,7 +126,7 @@ a  { color: inherit; }
 
 .btn--outline {
   border: 2px solid var(--vert-moyen);
-  color: var(--vert-moyen);
+  color: var(--vert-fonce);
   background: transparent;
 }
 .btn--outline:hover { background: var(--vert-xlight); }
@@ -886,19 +886,28 @@ a  { color: inherit; }
   left: 0; right: 0;
   display: flex;
   justify-content: center;
-  gap: 6px;
 }
 .carousel__dot {
+  /* Cible tactile 24×24 (WCAG) autour d'un point visuel plus petit */
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel__dot::after {
+  content: '';
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: rgba(0,0,0,0.18);
-  border: none;
-  cursor: pointer;
   transition: background 0.2s, transform 0.2s;
-  padding: 0;
 }
-.carousel__dot.active {
+.carousel__dot.active::after {
   background: var(--vert-moyen);
   transform: scale(1.35);
 }
@@ -961,7 +970,7 @@ a  { color: inherit; }
 }
 .contact__card:hover { background: rgba(255,255,255,0.13); }
 .contact__card > span { display: flex; opacity: 0.7; flex-shrink: 0; }
-.contact__card-label { color: rgba(255,255,255,0.48); font-size: 0.72rem; margin-bottom: 2px; }
+.contact__card-label { color: rgba(255,255,255,0.75); font-size: 0.72rem; margin-bottom: 2px; }
 .contact__card-value {
   font-weight: 700;
   font-size: 0.92rem;
@@ -1041,6 +1050,7 @@ a  { color: inherit; }
   height: 3px;
   background: rgba(10,28,10,0.35);
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 101;
   pointer-events: none;
 }
@@ -1290,3 +1300,24 @@ a  { color: inherit; }
 
 /* ── Hover patte footer ── */
 .footer__logo:hover { cursor: default; }
+
+/* ══════════════════════════════════════════
+   PAGE MENTIONS LÉGALES
+   ══════════════════════════════════════════ */
+.legal { max-width: 760px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+.legal h1 { font-size: 2rem; color: var(--vert-fonce); margin-bottom: 0.5rem; }
+.legal .legal__maj { font-family: var(--font-sans); color: var(--texte-doux); font-size: 0.85rem; margin-bottom: 2.5rem; }
+.legal h2 { font-family: var(--font-serif); font-size: 1.25rem; color: var(--vert-fonce); margin: 2.5rem 0 0.8rem; }
+.legal p, .legal li { font-family: var(--font-sans); color: var(--texte-doux); font-size: 0.95rem; line-height: 1.7; }
+.legal ul { margin: 0 0 1rem 1.2rem; }
+.legal a { color: var(--vert-moyen); text-decoration: underline; }
+.legal__placeholder {
+  background: var(--vert-xlight);
+  border: 1px dashed var(--vert-clair);
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.9em;
+  color: var(--vert-fonce);
+}
+.legal__back { display: inline-block; margin-bottom: 1rem; font-family: var(--font-sans); font-size: 0.9rem; }

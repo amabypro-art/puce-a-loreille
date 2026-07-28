@@ -3,7 +3,7 @@
 Site statique pour le salon de toilettage canin **La Puce à l'Oreille**  
 📍 4 Place de la Voile, 56390 Locmaria-Grand-Champ  
 📞 06 86 09 43 73  
-⭐ 4,9/5 sur Google (47 avis)
+⭐ 4,9/5 sur Google (52 avis)
 
 ---
 

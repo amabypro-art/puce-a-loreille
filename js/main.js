@@ -107,7 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
     lbApply(animated !== false);
   }
 
-  function openLightbox(src, alt) {
+  let lbTrigger = null;
+
+  function openLightbox(src, alt, trigger) {
+    lbTrigger = trigger || document.activeElement;
     lbReset(false);
     lbImg.src = src;
     lbImg.alt = alt;
@@ -128,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.classList.remove('open');
     document.body.style.overflow = '';
     lbReset(false);
+    if (lbTrigger) lbTrigger.focus();
   }
 
   // Zoom molette
@@ -187,7 +191,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === lightbox) closeLightbox();
   });
   lbClose.addEventListener('click', closeLightbox);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    // Le close est le seul élément focusable du dialogue : on l'y garde (piège à focus minimal).
+    if (e.key === 'Tab') { e.preventDefault(); lbClose.focus(); }
+  });
 
   /* ── MARQUEE AVIS — pause au tap sur mobile ── */
   const marqueeTrack = document.querySelector('.avis-marquee__track');
@@ -258,7 +267,9 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── CAROUSEL GALERIE ── */
   const carouselEl = document.querySelector('.carousel');
   if (carouselEl) {
-    carouselEl.querySelectorAll('[data-mobile-hidden]').forEach(el => el.remove());
+    if (window.innerWidth <= 767) {
+      carouselEl.querySelectorAll('[data-mobile-hidden]').forEach(el => el.remove());
+    }
     makeCarousel(carouselEl, {
       trackSel:  '.carousel__track',
       itemSel:   '.carousel__slide',
@@ -273,8 +284,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const img   = btn.querySelector('img');
       const title = btn.querySelector('.conseil-item__title').textContent.trim();
-      openLightbox(img.dataset.full || img.src, title);
+      openLightbox(img.dataset.full || img.src, title, btn);
     });
   });
+
+  /* ── ANNÉE COPYRIGHT ── */
+  const copyYear = document.getElementById('copy-year');
+  if (copyYear) copyYear.textContent = new Date().getFullYear();
 
 });
