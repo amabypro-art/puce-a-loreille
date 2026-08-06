@@ -1036,6 +1036,9 @@ a  { color: inherit; }
   line-height: 1.7;
   margin-bottom: 0.6rem;
 }
+.footer__tel {
+  white-space: nowrap;
+}
 .footer__links {
   font-family: var(--font-sans);
   font-size: 0.78rem;
